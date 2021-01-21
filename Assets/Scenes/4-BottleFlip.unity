@@ -7195,6 +7195,24 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012589737438, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010260813806, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010353223118, guid: 2e3326f61fb1ac944a59699246101349,
+        type: 2}
+      propertyPath: bottleForce.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010353223118, guid: 2e3326f61fb1ac944a59699246101349,
+        type: 2}
+      propertyPath: bottleForce.z
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
   m_IsPrefabParent: 0

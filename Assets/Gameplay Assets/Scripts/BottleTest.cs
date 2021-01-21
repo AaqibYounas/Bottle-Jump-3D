@@ -138,9 +138,9 @@ public class BottleTest : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-                //this.transform.rotation = Quaternion.Euler(Vector3.zero);
-                Physics.gravity = new Vector3(0, -23.81f, 0);
+                this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                this.transform.rotation = Quaternion.Euler(Vector3.zero);
+                Physics.gravity = new Vector3(0, -9.81f, 0);
 
                 Invoke("ResetName", 0.5f);
 
@@ -154,7 +154,7 @@ public class BottleTest : MonoBehaviour
                 jumpNo++;
 
                 //this.desired = this.Target.transform.position - this.transform.position;
-                this.rb.AddTorque(new Vector3(100, 0, 0));
+                this.rb.AddTorque(new Vector3(100, 0, 0),ForceMode.Impulse);
 
                 if (jumpNo < 1)
                     AddForce(250, desired);
@@ -177,7 +177,7 @@ public class BottleTest : MonoBehaviour
         {
             Physics.gravity = new Vector3(0, -45, 0);
 
-            this.anim.SetTrigger("FlipDown");
+           this.anim.SetTrigger("FlipDown");
             this.RotateDown = false;
             Debug.Log("Is Not Missing");
 
@@ -238,6 +238,7 @@ public class BottleTest : MonoBehaviour
         }
 
     }
+    public Vector3 bottleForce;
 
 
     public void AddForce(float Force, Vector3 D)
@@ -246,7 +247,7 @@ public class BottleTest : MonoBehaviour
         dir = new Vector3(dir.x-this.RightOffset, dir.y + this.Yoffset, dir.z*this.ExtraForce);
         //this.rb.AddForceAtPosition(dir * Force, Vector3.zero, ForceMode.Acceleration);
 
-        this.rb.AddForce(Force* new Vector3(0,10,5),ForceMode.Acceleration);
+        this.rb.AddForce(Force* bottleForce, ForceMode.Acceleration);
     } 
 
     public float RestoreWait = 1.0f;
@@ -276,7 +277,7 @@ public class BottleTest : MonoBehaviour
             jumpNo = 0;
             this.OnBasket = false;
             this.PlatForm = col.transform.root.gameObject;
-            this.PlatformOriginalScale = new Vector3(1, 1, 1);
+            //this.PlatformOriginalScale = new Vector3(1, 1, 1);
 
             if (this.PlatForm.gameObject.name != this.CurrentPlatformName)
             {
@@ -356,7 +357,7 @@ public class BottleTest : MonoBehaviour
                     });
                 }
                 this.enabled = false;
-                Debug.Log("gaaaame");
+                
                 break;
         }
     }
