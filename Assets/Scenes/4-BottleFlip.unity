@@ -512,7 +512,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 40336414}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 16.7, y: 4.8, z: -27.5}
+  m_LocalPosition: {x: 12.3, y: 2.88, z: -27.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1565685284}
@@ -2085,6 +2085,11 @@ MonoBehaviour:
   optionalRotationMode: 0
   optionalScrambleMode: 0
   optionalString: 
+--- !u!1 &461443984 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013671530822, guid: 2e3326f61fb1ac944a59699246101349,
+    type: 2}
+  m_PrefabInternal: {fileID: 2042815485}
 --- !u!1 &474280211
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,12 +4070,31 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0
   m_Autodestruct: 0
+--- !u!54 &1163585792 stripped
+Rigidbody:
+  m_PrefabParentObject: {fileID: 54000013326579808, guid: 2e3326f61fb1ac944a59699246101349,
+    type: 2}
+  m_PrefabInternal: {fileID: 2042815485}
 --- !u!114 &1163585793 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000010353223118, guid: 2e3326f61fb1ac944a59699246101349,
     type: 2}
   m_PrefabInternal: {fileID: 2042815485}
   m_Script: {fileID: 11500000, guid: 416a95b3e121a9449b888bcb157309b2, type: 3}
+--- !u!114 &1163585795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1163585789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac3b35a48316bb4a92c101379d3e07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerofMassVector: {x: 0, y: -0.2, z: 0}
+  awake: 0
+  rb: {fileID: 1163585792}
 --- !u!1 &1165458898
 GameObject:
   m_ObjectHideFlags: 0
@@ -7206,13 +7230,46 @@ Prefab:
     - target: {fileID: 114000010353223118, guid: 2e3326f61fb1ac944a59699246101349,
         type: 2}
       propertyPath: bottleForce.y
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114000010353223118, guid: 2e3326f61fb1ac944a59699246101349,
         type: 2}
       propertyPath: bottleForce.z
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4000010579251948, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.5566945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010579251948, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.5566952
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010579251948, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.5566952
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013213584762, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010607541980, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010741534074, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013671530822, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012946421502, guid: 2e3326f61fb1ac944a59699246101349,
+        type: 2}
+      propertyPath: Bottle
+      value: 
+      objectReference: {fileID: 461443984}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e3326f61fb1ac944a59699246101349, type: 2}
   m_IsPrefabParent: 0

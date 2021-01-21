@@ -140,7 +140,7 @@ public class BottleTest : MonoBehaviour
             {
                 this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 this.transform.rotation = Quaternion.Euler(Vector3.zero);
-                Physics.gravity = new Vector3(0, -9.81f, 0);
+                Physics.gravity = new Vector3(0, -45.81f, 0);
 
                 Invoke("ResetName", 0.5f);
 
@@ -154,12 +154,17 @@ public class BottleTest : MonoBehaviour
                 jumpNo++;
 
                 //this.desired = this.Target.transform.position - this.transform.position;
-                this.rb.AddTorque(new Vector3(100, 0, 0),ForceMode.Impulse);
 
-                if (jumpNo < 1)
-                    AddForce(250, desired);
-                else
+                //if (jumpNo < 1)
+                //{
+                //    AddForce(250, desired);
+                //    this.rb.AddTorque(new Vector3(9000, 0, 0), ForceMode.Acceleration);
+                //}
+                //else
+                //{
                     AddForce(100, desired);
+                    //this.rb.AddTorque(new Vector3(999999, 0, 0), ForceMode.Acceleration);
+                //}
 
                 Invoke("Test", 0.1f);   ////////////////////////////////////////////////////////Test Line
                 //this.Particle.SetActive(false);
@@ -175,7 +180,7 @@ public class BottleTest : MonoBehaviour
 
         if (this.rb.velocity.y < 0 & this.RotateDown)
         {
-            Physics.gravity = new Vector3(0, -45, 0);
+           // Physics.gravity = new Vector3(0, -45, 1);
 
            this.anim.SetTrigger("FlipDown");
             this.RotateDown = false;
@@ -254,6 +259,7 @@ public class BottleTest : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+
         Debug.Log("Ungli " + col.gameObject.name);
         Physics.gravity = new Vector3(0, -9.81f, 0);
         this.rb.constraints = RigidbodyConstraints.None;
@@ -261,6 +267,8 @@ public class BottleTest : MonoBehaviour
         this.RotateUp = false;
         if (col.gameObject.tag.Equals("Environment"))
         {
+            this.anim.SetTrigger("StopAnim");
+
             this.OnBasket = false;
             if (this.mode.Equals(GameplayMode.StaticDump))
             {
@@ -273,7 +281,11 @@ public class BottleTest : MonoBehaviour
         }
         else if (col.gameObject.tag.Equals("Target"))
         {
+            this.anim.SetTrigger("StopAnim");
             Invoke("MoveEnvironment", 0.5f);
+            this.anim.enabled = false;
+            this.anim.enabled = true;
+
             jumpNo = 0;
             this.OnBasket = false;
             this.PlatForm = col.transform.root.gameObject;
