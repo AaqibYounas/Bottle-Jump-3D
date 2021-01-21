@@ -21,7 +21,7 @@ public class BottleTest : MonoBehaviour
     public Rigidbody rb;
     public float force;
     public float speed = 5.0f;
-
+    private int jumpNo = 0;
     public float Yoffset = 2.0f;
 
     public bool Rotate;
@@ -132,50 +132,41 @@ public class BottleTest : MonoBehaviour
         CancelInvoke("ResetName");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (AllowInput)
+        if (jumpNo < 2)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                this.Particle.SetActive(true);
-                this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-                this.transform.rotation = Quaternion.Euler(Vector3.zero);
+                //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                //this.transform.rotation = Quaternion.Euler(Vector3.zero);
                 Physics.gravity = new Vector3(0, -23.81f, 0);
-           //     Debug.Log(Physics.gravity.y + "When applying force");
-                if (force < 500f)
-                {
-                    force += speed * Time.deltaTime;
-                }
-                //Vector3 Scale = this.Bottle.transform.localScale;
-                //Vector3 PScale = this.PlatForm.transform.localScale;
-                //if (PScale.y < this.HurdleSqueezeLimit)
-                //{
-                //    return;
-                //}
-                //this.Bottle.transform.localScale = new Vector3(Scale.x, Scale.y - this.BottleScaleOffset, Scale.z);
-                //this.PlatForm.transform.localScale = new Vector3(PScale.x, PScale.y - this.HurdleScaleOffset, PScale.z);
-            //}
 
-            //if (Input.GetMouseButtonUp(0))
-            //{
                 Invoke("ResetName", 0.5f);
-                if (this.PlatForm)
-                {
-                    if (this.PlatForm.GetComponent<HurdleSpawner>())
-                    {
-                        this.PlatForm.GetComponent<HurdleSpawner>().MarkVisible();
-                    }
-                }
-                this.desired = this.Target.transform.position - this.transform.position;
-                AddForce(200,desired);
+
+                //if (this.PlatForm)
+                //{
+                //    if (this.PlatForm.GetComponent<HurdleSpawner>())
+                //    {
+                //        this.PlatForm.GetComponent<HurdleSpawner>().MarkVisible();
+                //    }
+                //}
+                jumpNo++;
+
+                //this.desired = this.Target.transform.position - this.transform.position;
+                this.rb.AddTorque(new Vector3(100, 0, 0));
+
+                if (jumpNo < 1)
+                    AddForce(250, desired);
+                else
+                    AddForce(100, desired);
+
                 Invoke("Test", 0.1f);   ////////////////////////////////////////////////////////Test Line
-                this.Particle.SetActive(false);
-                this.RestoreScale();
+                //this.Particle.SetActive(false);
+                //this.RestoreScale();
                 Invoke("RD", 0.1f);
                 AllowInput = false;
-                force = 40;
+                //force = 40;
                 this.anim.SetTrigger("FlipUp");
                 this.manager.CloseTutorial();
                 this.aud.PlayOneShot(this.aud.clip);
@@ -192,6 +183,7 @@ public class BottleTest : MonoBehaviour
 
         }
     }
+
 
     void ApplyForce()
     {
@@ -221,13 +213,6 @@ public class BottleTest : MonoBehaviour
     public void FlipDown()
     {
         this.Flip(358);
-        //      Debug.Log(Quaternion.Angle(this.transform.rotation, Quaternion.Euler(358, 0, 0)));
-        //if (this.transform.rotation.x < 0)
-        //{
-        //    return;
-        //}
-        //Quaternion Q = this.transform.rotation;
-        //this.transform.rotation = Quaternion.Slerp(Q, Quaternion.Euler(Q.x + 120f, 0, 0), this.RotationSpeed *Time.deltaTime);
     }
 
     public void Flip(float RotVal)
@@ -237,14 +222,31 @@ public class BottleTest : MonoBehaviour
 
     public float ExtraForce;
 
+    public void forceWrapper()
+    {
+        AddForce(200, new Vector3(0, 0, 0));
+        this.anim.SetTrigger("FlipUp");
+
+        if (this.rb.velocity.y < 0 & this.RotateDown)
+        {
+            Physics.gravity = new Vector3(0, -45, 0);
+
+            this.anim.SetTrigger("FlipDown");
+            this.RotateDown = false;
+            Debug.Log("Is Not Missing");
+
+        }
+
+    }
+
 
     public void AddForce(float Force, Vector3 D)
     {
         Vector3 dir = this.Target.transform.position - this.transform.position;
         dir = new Vector3(dir.x-this.RightOffset, dir.y + this.Yoffset, dir.z*this.ExtraForce);
-        this.rb.AddForceAtPosition(dir * Force, Vector3.zero, ForceMode.Acceleration);
+        //this.rb.AddForceAtPosition(dir * Force, Vector3.zero, ForceMode.Acceleration);
 
-        //this.rb.AddForce(300* new Vector3(0,6,4),ForceMode.Acceleration);
+        this.rb.AddForce(Force* new Vector3(0,10,5),ForceMode.Acceleration);
     } 
 
     public float RestoreWait = 1.0f;
@@ -271,27 +273,17 @@ public class BottleTest : MonoBehaviour
         else if (col.gameObject.tag.Equals("Target"))
         {
             Invoke("MoveEnvironment", 0.5f);
-            if (col.gameObject.name != "SpawnPoint")
-            {
-                //this.rb.velocity = Vector3.zero;
-            }
+            jumpNo = 0;
             this.OnBasket = false;
             this.PlatForm = col.transform.root.gameObject;
-            //if (this.PlatForm.GetComponent<HurdleSpawner>())
-            //{
-            //    this.PlatForm.GetComponent<HurdleSpawner>().ExtendCollider();
-            //}
             this.PlatformOriginalScale = new Vector3(1, 1, 1);
+
             if (this.PlatForm.gameObject.name != this.CurrentPlatformName)
             {
-                //if (col.gameObject.GetComponentInChildren<TargetTest>())
-                //{
                 this.CoveredDistance += this.GetComponentInChildren<TargetTest>().Distance;
                 if (col.gameObject.name != "SpawnPoint")
-                Invoke("RegisterFlip", 0.7f);
-                //}
-                this.manager.SpawnNextHurdle(this.PlatForm.transform.position, Quaternion.Euler(Vector3.zero));
-                Debug.Log("Hurdle Spawned");
+                    Invoke("RegisterFlip", 0.7f);
+
                 this.CurrentPlatformName = col.gameObject.name;
                 if (this.PlatForm.GetComponentInChildren<UnityEngine.UI.Text>())
                 {
@@ -316,17 +308,6 @@ public class BottleTest : MonoBehaviour
             this.OnBasket = true;
             Invoke("Check", this.RestoreWait);
         }
-        //else if (col.gameObject.tag != "Finish" && col.gameObject.tag!="Target" && col.gameObject.tag!="Environment")
-        //{
-        //    if (this.transform.eulerAngles.x > -2 && this.transform.eulerAngles.x < 2)
-        //    {
-        //        //this.rb.AddTorque(this.transform.forward* 500f);
-        //        AddForce(40, desired);
-        //        Debug.Log("INto Else Case");
-        //        //Invoke("GameOver", 0.5f);
-        //    }
-        //}
-        //   Invoke("TestAllign", 0.3f);
     }
 
 

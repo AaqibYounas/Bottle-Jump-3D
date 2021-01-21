@@ -17,16 +17,16 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
-        value: {x: 180, y: 0, z: 0}
-        inSlope: {x: 600.7733, y: 0, z: 0}
-        outSlope: {x: 600.7733, y: 0, z: 0}
+        time: 0.01
+        value: {x: 186.00774, y: 0, z: 0}
+        inSlope: {x: 600.77325, y: 0, z: 0}
+        outSlope: {x: 600.77325, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 0.3
         value: {x: 360.232, y: 0, z: 0}
-        inSlope: {x: 600.7733, y: 0, z: 0}
-        outSlope: {x: 600.7733, y: 0, z: 0}
+        inSlope: {x: 600.77325, y: 0, z: 0}
+        outSlope: {x: 600.77325, y: 0, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -43,11 +43,12 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 0
+    - serializedVersion: 2
+      path: 0
       attribute: 4
       script: {fileID: 0}
-      classID: 4
-      customType: 14
+      typeID: 4
+      customType: 4
       isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
@@ -75,16 +76,16 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
-        value: 180
-        inSlope: 600.7733
-        outSlope: 600.7733
+        time: 0.01
+        value: 186.00774
+        inSlope: 600.77325
+        outSlope: 600.77325
         tangentMode: 34
       - serializedVersion: 2
         time: 0.3
         value: 360.232
-        inSlope: 600.7733
-        outSlope: 600.7733
+        inSlope: 600.77325
+        outSlope: 600.77325
         tangentMode: 34
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -97,7 +98,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.01
         value: 0
         inSlope: 0
         outSlope: 0
@@ -119,7 +120,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
-        time: 0
+        time: 0.01
         value: 0
         inSlope: 0
         outSlope: 0
@@ -171,5 +172,4 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
-  m_IsEmpty: 0
   m_Events: []

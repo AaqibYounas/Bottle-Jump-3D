@@ -114,7 +114,7 @@ public class HurdleSpawner : MonoBehaviour
         {
             this.PreviousOne.SetActive(false);
         }
-        this.SpawnHurdle();
+        //this.SpawnHurdle();
     }
 
     public void RestoreScale()
