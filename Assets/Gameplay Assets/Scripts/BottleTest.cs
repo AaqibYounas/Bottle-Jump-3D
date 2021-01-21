@@ -138,8 +138,8 @@ public class BottleTest : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-                this.transform.rotation = Quaternion.Euler(Vector3.zero);
+                //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                //this.transform.rotation = Quaternion.Euler(Vector3.zero);
                 Physics.gravity = new Vector3(0, -45.81f, 0);
 
                 Invoke("ResetName", 0.5f);
@@ -163,7 +163,7 @@ public class BottleTest : MonoBehaviour
                 //else
                 //{
                     AddForce(100, desired);
-                    //this.rb.AddTorque(new Vector3(999999, 0, 0), ForceMode.Acceleration);
+                    this.rb.AddTorque(Vector3.right * 99999);
                 //}
 
                 Invoke("Test", 0.1f);   ////////////////////////////////////////////////////////Test Line
@@ -172,7 +172,8 @@ public class BottleTest : MonoBehaviour
                 Invoke("RD", 0.1f);
                 AllowInput = false;
                 //force = 40;
-                this.anim.SetTrigger("FlipUp");
+                //this.anim.enabled = true;
+                //this.anim.SetTrigger("FlipUp");
                 this.manager.CloseTutorial();
                 this.aud.PlayOneShot(this.aud.clip);
             }
@@ -180,15 +181,31 @@ public class BottleTest : MonoBehaviour
 
         if (this.rb.velocity.y < 0 & this.RotateDown)
         {
-           // Physics.gravity = new Vector3(0, -45, 1);
-
-           this.anim.SetTrigger("FlipDown");
+            // Physics.gravity = new Vector3(0, -45, 1);
+           //this.anim.SetTrigger("FlipDown");
             this.RotateDown = false;
             Debug.Log("Is Not Missing");
-
         }
-    }
 
+        //if(transform.rotation.x < 20 && transform.rotation.x >= -20f)
+        //{
+        //    GetComponent<CenterOfMass>().enabled = true;
+        //}
+        //else
+        //    GetComponent<CenterOfMass>().enabled = false;
+       
+        if (!this.RotateDown && this.rb.velocity.y < 0 )
+        { 
+            transform.rotation = Quaternion.FromToRotation(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z),new Vector3(0f, transform.rotation.y, transform.rotation.z));
+            rb.constraints = RigidbodyConstraints.FreezeRotationX;
+
+            print("Fixed");
+        }
+        
+
+        
+    }
+    bool stright = false;
 
     void ApplyForce()
     {
@@ -227,22 +244,7 @@ public class BottleTest : MonoBehaviour
 
     public float ExtraForce;
 
-    public void forceWrapper()
-    {
-        AddForce(200, new Vector3(0, 0, 0));
-        this.anim.SetTrigger("FlipUp");
 
-        if (this.rb.velocity.y < 0 & this.RotateDown)
-        {
-            Physics.gravity = new Vector3(0, -45, 0);
-
-            this.anim.SetTrigger("FlipDown");
-            this.RotateDown = false;
-            Debug.Log("Is Not Missing");
-
-        }
-
-    }
     public Vector3 bottleForce;
 
 
@@ -262,12 +264,11 @@ public class BottleTest : MonoBehaviour
 
         Debug.Log("Ungli " + col.gameObject.name);
         Physics.gravity = new Vector3(0, -9.81f, 0);
-        this.rb.constraints = RigidbodyConstraints.None;
+        //this.rb.constraints = RigidbodyConstraints.None;
         this.RotateDown = false;
         this.RotateUp = false;
         if (col.gameObject.tag.Equals("Environment"))
         {
-            this.anim.SetTrigger("StopAnim");
 
             this.OnBasket = false;
             if (this.mode.Equals(GameplayMode.StaticDump))
@@ -281,10 +282,7 @@ public class BottleTest : MonoBehaviour
         }
         else if (col.gameObject.tag.Equals("Target"))
         {
-            this.anim.SetTrigger("StopAnim");
             Invoke("MoveEnvironment", 0.5f);
-            this.anim.enabled = false;
-            this.anim.enabled = true;
 
             jumpNo = 0;
             this.OnBasket = false;
@@ -304,6 +302,8 @@ public class BottleTest : MonoBehaviour
                 }
             }
             Invoke("InputOn", 0.4f);
+            //this.anim.SetTrigger("StopAnim");
+
         }
 
         else if (col.gameObject.tag.Equals("Basket"))

@@ -7,14 +7,20 @@ public class CenterOfMass : MonoBehaviour {
     public Vector3 centerofMassVector;
     public bool awake;
     public Rigidbody rb;
+    public float F;
 	// Use this for initialization
-	void Start ()
+	void OnEnable ()
     {
-		
+        //Invoke("dis", F);
 	}
-	
-	// Update is called once per frame
-	void Update ()
+    private void dis()
+    {
+        GetComponent<CenterOfMass>().enabled = false;
+
+
+    }
+    // Update is called once per frame
+    void Update ()
     {
         rb.centerOfMass = centerofMassVector;
         rb.WakeUp();
