@@ -7,7 +7,7 @@ public class CenterOfMass : MonoBehaviour {
     public Vector3 centerofMassVector;
     public bool awake;
     public Rigidbody rb;
-    public float F;
+   // public float F;
 	// Use this for initialization
 	void OnEnable ()
     {

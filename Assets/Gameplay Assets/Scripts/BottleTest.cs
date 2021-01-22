@@ -76,6 +76,7 @@ public class BottleTest : MonoBehaviour
 
     void Awake()
     {
+        canJump = true;
         AllowInput = false;
          Invoke("EnableInput", 0.8f);
         if (this.Particle)
@@ -87,7 +88,7 @@ public class BottleTest : MonoBehaviour
         this.manager = GameObject.FindObjectOfType<GameManager>();
         this.anim = this.ActiveBottle.GetComponent<Animator>();
         this.activeBottle = this.GetComponentInChildren<ActiveBottle>();
-        Invoke("AssignActiveBottle", 0.01f);
+        //Invoke("AssignActiveBottle", 0.01f);
     }
 
     public void EnableInput()
@@ -134,13 +135,14 @@ public class BottleTest : MonoBehaviour
 
     void Update()
     {
-        if (jumpNo < 2)
+        print(canJump);
+        if (jumpNo < 1)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 //this.transform.rotation = Quaternion.Euler(Vector3.zero);
-                Physics.gravity = new Vector3(0, -45.81f, 0);
+                Physics.gravity = new Vector3(0, -35f, 0);
 
                 Invoke("ResetName", 0.5f);
 
@@ -151,19 +153,20 @@ public class BottleTest : MonoBehaviour
                 //        this.PlatForm.GetComponent<HurdleSpawner>().MarkVisible();
                 //    }
                 //}
-                jumpNo++;
 
                 //this.desired = this.Target.transform.position - this.transform.position;
 
-                //if (jumpNo < 1)
+                //if (jumpNo > 0)
                 //{
-                //    AddForce(250, desired);
-                //    this.rb.AddTorque(new Vector3(9000, 0, 0), ForceMode.Acceleration);
+                //    AddForce(200, desired);
+                //    print("2nd Jump");
+                //    //this.rb.AddTorque(new Vector3(9000, 0, 0), ForceMode.Acceleration);
                 //}
                 //else
                 //{
-                    AddForce(100, desired);
-                    this.rb.AddTorque(Vector3.right * 99999);
+                    AddForce();
+                    print("1st Jump");
+                    //this.rb.AddTorque(Vector3.right * 99999);
                 //}
 
                 Invoke("Test", 0.1f);   ////////////////////////////////////////////////////////Test Line
@@ -181,35 +184,20 @@ public class BottleTest : MonoBehaviour
 
         if (this.rb.velocity.y < 0 & this.RotateDown)
         {
-            // Physics.gravity = new Vector3(0, -45, 1);
-           //this.anim.SetTrigger("FlipDown");
-            this.RotateDown = false;
-            Debug.Log("Is Not Missing");
-        }
-
-        //if(transform.rotation.x < 20 && transform.rotation.x >= -20f)
-        //{
-        //    GetComponent<CenterOfMass>().enabled = true;
-        //}
-        //else
-        //    GetComponent<CenterOfMass>().enabled = false;
-       
-        if (!this.RotateDown && this.rb.velocity.y < 0 )
-        { 
-            transform.rotation = Quaternion.FromToRotation(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z),new Vector3(0f, transform.rotation.y, transform.rotation.z));
-            rb.constraints = RigidbodyConstraints.FreezeRotationX;
-
-            print("Fixed");
+           Physics.gravity = new Vector3(0, -35f, 1);
+           this.anim.SetTrigger("FlipDown");
+           this.RotateDown = false;
+           Debug.Log("Is Not Missing");
+           
         }
         
 
         
     }
-    bool stright = false;
 
     void ApplyForce()
     {
-        AddForce(force, this.desired);
+        //AddForce(force, this.desired);
         force = 0;
         this.RotateUp = true;
         this.anim.SetTrigger("FlipUp");
@@ -246,24 +234,54 @@ public class BottleTest : MonoBehaviour
 
 
     public Vector3 bottleForce;
+    public bool canJump = true;
 
-
-    public void AddForce(float Force, Vector3 D)
+    IEnumerator againJump()
     {
-        Vector3 dir = this.Target.transform.position - this.transform.position;
-        dir = new Vector3(dir.x-this.RightOffset, dir.y + this.Yoffset, dir.z*this.ExtraForce);
-        //this.rb.AddForceAtPosition(dir * Force, Vector3.zero, ForceMode.Acceleration);
+        yield return new WaitForSeconds(0.3f);
+        canJump = true;
+    }
 
-        this.rb.AddForce(Force* bottleForce, ForceMode.Acceleration);
-    } 
+    public void AddForce()
+    {
+
+        if (jumpNo <= 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            print("1st");
+            this.anim.SetTrigger("FlipUp");
+            this.rb.AddForce(200* bottleForce, ForceMode.Acceleration);
+            //this.rb.AddTorque(Vector3.right * 9999);
+            //ITweenMagic iTM = GetComponent<ITweenMagic>();
+            //iTM.initialRotation = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+            //if(transform.rotation.x >= 0)
+            //    iTM.targetRotation = new Vector3(180, transform.rotation.y, transform.rotation.z);
+            //if(transform.rotation.x < 0)
+            //    iTM.targetRotation = new Vector3(0, transform.rotation.y, transform.rotation.z);
+
+            //iTM.PlayForwardRotation();
+        }
+        else
+        {
+            //transform.eulerAngles = new Vector3(0, 0, 0);
+            //this.rb.AddTorque(Vector3.right * 9999);
+            this.anim.SetTrigger("FlipUp");
+            this.rb.AddForce(200* bottleForce, ForceMode.Acceleration);
+            print("2nd");
+        }
+        canJump = false;
+        StartCoroutine(againJump());
+        jumpNo++;
+
+    }
 
     public float RestoreWait = 1.0f;
 
     void OnCollisionEnter(Collision col)
     {
 
-        Debug.Log("Ungli " + col.gameObject.name);
-        Physics.gravity = new Vector3(0, -9.81f, 0);
+        //Debug.Log("Ungli " + col.gameObject.name);
+        //Physics.gravity = new Vector3(0, -9.81f, 0);
         //this.rb.constraints = RigidbodyConstraints.None;
         this.RotateDown = false;
         this.RotateUp = false;
@@ -291,15 +309,15 @@ public class BottleTest : MonoBehaviour
 
             if (this.PlatForm.gameObject.name != this.CurrentPlatformName)
             {
-                this.CoveredDistance += this.GetComponentInChildren<TargetTest>().Distance;
-                if (col.gameObject.name != "SpawnPoint")
-                    Invoke("RegisterFlip", 0.7f);
+                //this.CoveredDistance += this.GetComponentInChildren<TargetTest>().Distance;
+                //if (col.gameObject.name != "SpawnPoint")
+                //    Invoke("RegisterFlip", 0.7f);
 
-                this.CurrentPlatformName = col.gameObject.name;
-                if (this.PlatForm.GetComponentInChildren<UnityEngine.UI.Text>())
-                {
-                    this.PlatForm.GetComponentInChildren<UnityEngine.UI.Text>().transform.parent.gameObject.SetActive(false);
-                }
+                //this.CurrentPlatformName = col.gameObject.name;
+                //if (this.PlatForm.GetComponentInChildren<UnityEngine.UI.Text>())
+                //{
+                //    this.PlatForm.GetComponentInChildren<UnityEngine.UI.Text>().transform.parent.gameObject.SetActive(false);
+                //}
             }
             Invoke("InputOn", 0.4f);
             //this.anim.SetTrigger("StopAnim");
