@@ -136,7 +136,7 @@ public class BottleTest : MonoBehaviour
     void Update()
     {
         print(canJump);
-        if (jumpNo < 1)
+        if (jumpNo < 2)
         {
             if (Input.GetMouseButtonDown(0))
             {
