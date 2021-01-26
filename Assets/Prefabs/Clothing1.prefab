@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 23089078461424180}
   m_Layer: 0
   m_Name: SI_Prop_FireExtinguisher_03
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 4145795254068608}
   - component: {fileID: 33629095192600774}
   - component: {fileID: 23354303478331406}
-  - component: {fileID: 64989555840563982}
+  - component: {fileID: 65491672975212364}
   m_Layer: 0
   m_Name: SI_Prop_ClothesRack_04
   m_TagString: Target
@@ -299,7 +299,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470208751218638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.382, y: 2.019639, z: -37.7526}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4577764431767858}
@@ -766,8 +766,8 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 07bd48e6d42aa0e438066e5e7cb375d6, type: 3}
---- !u!64 &64989555840563982
-MeshCollider:
+--- !u!65 &65491672975212364
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -775,11 +775,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 6d15d10867b895a45a18b96737c018de, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.84, y: 1.58, z: 3.14}
+  m_Center: {x: 0, y: 1.34, z: 0}
 --- !u!65 &65526162895463070
 BoxCollider:
   m_ObjectHideFlags: 1
