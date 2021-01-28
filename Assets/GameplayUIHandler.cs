@@ -25,7 +25,7 @@ public class GameplayUIHandler : MonoBehaviour {
     void Awake () 
     {
         this.gameManager = GameManager.GetInstance();
-        this.TotalCoinsText.text = PrefsManager.GetTotalCoins().ToString();
+        //this.TotalCoinsText.text = PrefsManager.GetTotalCoins().ToString();
         this.Manager = GameManager.GetInstance();
 	}
 
