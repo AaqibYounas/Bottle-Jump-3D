@@ -132,7 +132,7 @@ public class BottleTest : MonoBehaviour
         this.CurrentPlatformName = "None";
         CancelInvoke("ResetName");
     }
-    float gravity = -25;
+    float gravity = -20;
     void Update()
     {
         angleChecker();
@@ -222,27 +222,18 @@ public class BottleTest : MonoBehaviour
 
         if (jumpNo <= 0)
         {
-            //transform.eulerAngles = new Vector3(0, 0, 0);
             print("1st");
             //this.anim.SetTrigger("FlipUp");
             this.rb.AddForce(200* bottleForce, ForceMode.Acceleration);
             this.rb.AddTorque(Vector3.right * 99999);
-            //ITweenMagic iTM = GetComponent<ITweenMagic>();
-            //iTM.initialRotation = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
-            //if(transform.rotation.x >= 0)
-            //    iTM.targetRotation = new Vector3(180, transform.rotation.y, transform.rotation.z);
-            //if(transform.rotation.x < 0)
-            //    iTM.targetRotation = new Vector3(0, transform.rotation.y, transform.rotation.z);
-
-            //iTM.PlayForwardRotation();
         }
         else
         {
-            //transform.eulerAngles = new Vector3(0, 0, 0);
-            this.rb.AddTorque(Vector3.right * 9999);
+            this.rb.AddTorque(Vector3.right * 99999);
             //this.anim.SetTrigger("FlipUp");
-            this.rb.AddForce(200* bottleForce, ForceMode.Acceleration);
+            this.rb.AddForce(150* bottleForce, ForceMode.Acceleration);
             print("2nd");
+            rotOne = 1;
         }
         canJump = false;
         StartCoroutine(againJump());
@@ -285,18 +276,6 @@ public class BottleTest : MonoBehaviour
             this.PlatForm = col.transform.root.gameObject;
             //this.PlatformOriginalScale = new Vector3(1, 1, 1);
 
-            if (this.PlatForm.gameObject.name != this.CurrentPlatformName)
-            {
-                //this.CoveredDistance += this.GetComponentInChildren<TargetTest>().Distance;
-                //if (col.gameObject.name != "SpawnPoint")
-                //    Invoke("RegisterFlip", 0.7f);
-
-                //this.CurrentPlatformName = col.gameObject.name;
-                //if (this.PlatForm.GetComponentInChildren<UnityEngine.UI.Text>())
-                //{
-                //    this.PlatForm.GetComponentInChildren<UnityEngine.UI.Text>().transform.parent.gameObject.SetActive(false);
-                //}
-            }
             Invoke("InputOn", 0.4f);
             //this.anim.SetTrigger("StopAnim");
 
@@ -444,18 +423,23 @@ public class BottleTest : MonoBehaviour
 
         rotationAngle = Mathf.Round(x);
         
-        if(rotationAngle <-1 && rotationAngle>=-15 && oneTime)
+        if(rotationAngle <-1 && rotationAngle>=-11)
         {
-            oneTime = false;
-            rb.Sleep();
-            rb.WakeUp();
-            Physics.gravity = new Vector3(0, gravity, 0);
-            //transform.eulerAngles = new Vector3(-5, 0, 0);
-
-            print("Stop");
+            if(rotOne == 1)
+            {
+                rotOne--;
+            }
+            else
+            {
+                Physics.gravity = new Vector3(0, gravity, 0);
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                //rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                print("Stop");
+            }
         }
     }
 
     bool oneTime = true;
-
+    int rotOne = 0;
 }

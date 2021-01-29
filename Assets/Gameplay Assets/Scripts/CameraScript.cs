@@ -3,25 +3,29 @@ using System.Collections;
 
 public class CameraScript : MonoBehaviour 
 {
-    private Vector3 Distance;
+    public Vector3 Distance;
     public Transform Player;
     public Vector3 cameraTransform;
+    private float cameraY;
 	// Use this for initialization
 	void Start () 
     {
-        this.Distance = this.transform.position - Player.transform.position;
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        //this.Distance = this.transform.position - Player.transform.position;
         cameraTransform = this.GetComponent<Transform>().position;
-	}
+        this.transform.position = this.Distance + new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        cameraY = transform.position.y;
+    }
 	
 	// Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         UpdatePosition();
     }
 
     private void UpdatePosition()
     {
-        this.transform.position = this.Distance + new Vector3(Player.transform.position.x, 0, Player.transform.position.z);
+        this.transform.position = this.Distance + new Vector3(Player.transform.position.x, cameraY, Player.transform.position.z);
     }
 
 }
