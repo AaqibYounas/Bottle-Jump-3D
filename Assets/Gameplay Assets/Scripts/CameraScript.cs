@@ -13,7 +13,7 @@ public class CameraScript : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         //this.Distance = this.transform.position - Player.transform.position;
         cameraTransform = this.GetComponent<Transform>().position;
-        this.transform.position = this.Distance + new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        //this.transform.position = this.Distance + new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
         cameraY = transform.position.y;
     }
 	

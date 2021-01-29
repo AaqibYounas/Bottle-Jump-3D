@@ -135,7 +135,7 @@ public class BottleTest : MonoBehaviour
     float gravity = -20;
     void Update()
     {
-        angleChecker();
+        //angleChecker();
         if (jumpNo < 2)
         {
             if (Input.GetMouseButtonDown(0))
@@ -163,13 +163,21 @@ public class BottleTest : MonoBehaviour
            //this.anim.SetTrigger("FlipDown");
            this.RotateDown = false;
            Debug.Log("Is Not Missing");
+           //angleChecker();
            
         }
-        
+  
 
         
     }
 
+ private void FixedUpdate()
+{
+        if (this.rb.velocity.y < 0)
+        {
+            angleChecker();
+        }
+}
     void ApplyForce()
     {
         //AddForce(force, this.desired);
@@ -217,6 +225,7 @@ public class BottleTest : MonoBehaviour
         canJump = true;
     }
 
+float bForce = 200;
     public void AddForce()
     {
 
@@ -224,16 +233,23 @@ public class BottleTest : MonoBehaviour
         {
             print("1st");
             //this.anim.SetTrigger("FlipUp");
-            this.rb.AddForce(200* bottleForce, ForceMode.Acceleration);
+            this.rb.AddForce(bForce* bottleForce, ForceMode.Acceleration);
             this.rb.AddTorque(Vector3.right * 99999);
         }
         else
         {
             this.rb.AddTorque(Vector3.right * 99999);
             //this.anim.SetTrigger("FlipUp");
-            this.rb.AddForce(150* bottleForce, ForceMode.Acceleration);
             print("2nd");
-            rotOne = 1;
+            
+            if(this.rb.velocity.y < 0)
+            {
+                this.rb.AddForce(bForce* bottleForce, ForceMode.Acceleration);
+
+            }
+            else
+               this.rb.AddForce((bForce-50)* bottleForce, ForceMode.Acceleration);
+
         }
         canJump = false;
         StartCoroutine(againJump());
@@ -419,26 +435,22 @@ public class BottleTest : MonoBehaviour
         }
 
         //Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y)
-        // + " , " + Mathf.Round(z));
+         //+ " , " + Mathf.Round(z));
 
         rotationAngle = Mathf.Round(x);
-        
-        if(rotationAngle <-1 && rotationAngle>=-11)
+                        print("Stop " + rotationAngle);
+
+        if(rotationAngle <15 && rotationAngle>=-15)
         {
-            if(rotOne == 1)
-            {
-                rotOne--;
-            }
-            else
-            {
                 Physics.gravity = new Vector3(0, gravity, 0);
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 //rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
                 print("Stop");
-            }
+           
         }
     }
+
 
     bool oneTime = true;
     int rotOne = 0;

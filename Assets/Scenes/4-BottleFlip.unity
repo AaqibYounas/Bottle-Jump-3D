@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1508296545}
-  m_IndirectSpecularColor: {r: 0.4400422, g: 0.48853904, b: 0.5687324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44004184, g: 0.48853868, b: 0.5687319, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -198,6 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 15755577}
   - component: {fileID: 15755579}
+  - component: {fileID: 15755578}
   m_Layer: 0
   m_Name: BottleParent
   m_TagString: Untagged
@@ -237,6 +238,20 @@ Transform:
   m_Father: {fileID: 238988170}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &15755578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 15755576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a226eab328a94874897b4e7a6f3cb548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAngle: 0
+  xAngle2: 0
+  xAngle3: 0
 --- !u!95 &15755579
 Animator:
   serializedVersion: 3
@@ -13267,6 +13282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416a95b3e121a9449b888bcb157309b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAngle: 0
+  xAngle2: 0
+  xAngle3: 0
   bottleState: 0
   Target: {fileID: 0}
   rb: {fileID: 0}
