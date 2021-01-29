@@ -51,11 +51,12 @@ public class GameplayUIHandler : MonoBehaviour {
         bottleDistance = end.transform.position.z - bottle.transform.position.z;
         float coveredDistance = totalDistance - bottleDistance;
         levelbar.fillAmount = coveredDistance / totalDistance;
-        print(coveredDistance/totalDistance);
+        //print(coveredDistance/totalDistance);
 
     }
     private void gameStarter()
     {
+        start.transform.position = bottle.transform.position;
         totalDistance = end.transform.position.z - start.transform.position.z;
         print(totalDistance);
         levelIndicator1.text = variables.currentLevel.ToString();
