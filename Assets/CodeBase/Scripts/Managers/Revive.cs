@@ -7,6 +7,7 @@ public class Revive : MonoBehaviour
 {
     [SerializeField] private Image fillImage;
     [SerializeField] private float totalTime;
+    [SerializeField] private Text levelPercentage;
 
     [SerializeField] private ITweenMagic tween;
 
@@ -16,6 +17,7 @@ public class Revive : MonoBehaviour
     void Start()
     {
         timeLeft = totalTime;
+        levelPercentage.text = (FindObjectOfType<GameplayUIHandler>().levelCompletionPercentatge + "%").ToString();
     }
 
     IEnumerator delayReviveSound()

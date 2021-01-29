@@ -332,12 +332,12 @@ Prefab:
         type: 2}
       propertyPath: start
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 799181564}
     - target: {fileID: 114027763357371302, guid: dd26602a945e016488bdb42e4db38520,
         type: 2}
       propertyPath: end
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1365113119}
     - target: {fileID: 114027763357371302, guid: dd26602a945e016488bdb42e4db38520,
         type: 2}
       propertyPath: bottle
@@ -1008,6 +1008,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4014278435930440, guid: 0601053204450854eb25d06be9de65a6,
     type: 2}
   m_PrefabInternal: {fileID: 366139586}
+--- !u!1 &799181564 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1579085591646158, guid: e812d5b54e8997b43a913b2f07d7e70e,
+    type: 2}
+  m_PrefabInternal: {fileID: 833465906}
 --- !u!1001 &812357698
 Prefab:
   m_ObjectHideFlags: 0
@@ -1273,6 +1278,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50cfa5c6e8354fa498e651b2b5663d9b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1365113119 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1246450313346928, guid: e812d5b54e8997b43a913b2f07d7e70e,
+    type: 2}
+  m_PrefabInternal: {fileID: 833465906}
 --- !u!1001 &1367670169
 Prefab:
   m_ObjectHideFlags: 0

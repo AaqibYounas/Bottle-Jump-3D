@@ -139,44 +139,20 @@ public class BottleTest : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                //angleChecker();
                 //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 //this.transform.rotation = Quaternion.Euler(Vector3.zero);
                 Physics.gravity = new Vector3(0, -35f, 0);
 
                 Invoke("ResetName", 0.5f);
 
-                //if (this.PlatForm)
-                //{
-                //    if (this.PlatForm.GetComponent<HurdleSpawner>())
-                //    {
-                //        this.PlatForm.GetComponent<HurdleSpawner>().MarkVisible();
-                //    }
-                //}
-
-                //this.desired = this.Target.transform.position - this.transform.position;
-
-                //if (jumpNo > 0)
-                //{
-                //    AddForce(200, desired);
-                //    print("2nd Jump");
-                //    //this.rb.AddTorque(new Vector3(9000, 0, 0), ForceMode.Acceleration);
-                //}
-                //else
-                //{
                     AddForce();
                     print("1st Jump");
-                    //this.rb.AddTorque(Vector3.right * 99999);
-                //}
-
                 Invoke("Test", 0.1f);   ////////////////////////////////////////////////////////Test Line
                 //this.Particle.SetActive(false);
                 //this.RestoreScale();
                 Invoke("RD", 0.1f);
                 AllowInput = false;
-                //force = 40;
-                //this.anim.enabled = true;
-                //this.anim.SetTrigger("FlipUp");
-                //this.manager.CloseTutorial();
             }
         }
 
@@ -285,6 +261,9 @@ public class BottleTest : MonoBehaviour
         this.RotateUp = false;
         if (col.gameObject.tag.Equals("Environment"))
         {
+
+            if (variables.isLevelComplete)
+                return;
 
             this.OnBasket = false;
             if (this.mode.Equals(GameplayMode.StaticDump))
@@ -401,6 +380,7 @@ public class BottleTest : MonoBehaviour
 
    IEnumerator levelComplete()
     {
+        variables.isLevelComplete = true;
         GetComponent<BottleTest>().enabled = false;
         yield return new WaitForSeconds(2);
         Instantiate(Resources.Load(constants.levelcomplete));
@@ -415,5 +395,53 @@ public class BottleTest : MonoBehaviour
     {
          AllowInput = true;
     }
+
+
+
+    void angleChecker()
+    {
+        Vector3 angle = transform.eulerAngles;
+        float x = angle.x;
+        float y = angle.y;
+        float z = angle.z;
+
+        if (Vector3.Dot(transform.up, Vector3.up) >= 0f)
+        {
+            if (angle.x >= 0f && angle.x <= 90f)
+            {
+                x = angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f)
+            {
+                x = angle.x - 360f;
+            }
+        }
+        if (Vector3.Dot(transform.up, Vector3.up) < 0f)
+        {
+            if (angle.x >= 0f && angle.x <= 90f)
+            {
+                x = 180 - angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f)
+            {
+                x = 180 - angle.x;
+            }
+        }
+
+        if (angle.y > 180)
+        {
+            y = angle.y - 360f;
+        }
+
+        if (angle.z > 180)
+        {
+            z = angle.z - 360f;
+        }
+
+        Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y)
+         + " , " + Mathf.Round(z));
+    }
+
+
 
 }

@@ -9,6 +9,7 @@ public class GameplayUIHandler : MonoBehaviour {
     public Image levelbar;
     public GameObject start, end, bottle;
     public Text levelIndicator1, levelIndicator2;
+    public float levelCompletionPercentatge;
     private float bottleDistance, totalDistance;
     public GameManager Manager;
     public GameObject PausePanel;
@@ -51,11 +52,13 @@ public class GameplayUIHandler : MonoBehaviour {
         bottleDistance = end.transform.position.z - bottle.transform.position.z;
         float coveredDistance = totalDistance - bottleDistance;
         levelbar.fillAmount = coveredDistance / totalDistance;
+        levelCompletionPercentatge = (coveredDistance / totalDistance) * 100;
         //print(coveredDistance/totalDistance);
 
     }
     private void gameStarter()
     {
+        variables.isLevelComplete = false;
         start.transform.position = bottle.transform.position;
         totalDistance = end.transform.position.z - start.transform.position.z;
         print(totalDistance);
