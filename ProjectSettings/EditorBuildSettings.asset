@@ -5,12 +5,69 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/CodeBase/Scene/MainMenu.unity
     guid: 1aa00c9c357c7b942a93156894bb4a39
-  - enabled: 0
-    path: Assets/CodeBase/Scene/AdsScene.unity
-    guid: a4a270979126bfb45a73770bbfd37493
   - enabled: 1
     path: Assets/Scenes/4-BottleFlip.unity
     guid: d6edd0b607fad3a4d9d05c35605aed46
+  - enabled: 1
+    path: Assets/Levels/Level_1.unity
+    guid: cf06303961f5c2849b872dd12bd62c85
+  - enabled: 1
+    path: Assets/Levels/Level_2.unity
+    guid: 89fd867b5516d4a4ca65def03d7319bb
+  - enabled: 1
+    path: Assets/Levels/Level_3.unity
+    guid: b5edf95bc6254c24a979ea6800679c77
+  - enabled: 1
+    path: Assets/Levels/Level_4.unity
+    guid: 7a56b38e44692d041b95d27d5f39c0dd
+  - enabled: 1
+    path: Assets/Levels/Level_5.unity
+    guid: 4218276ac22f73541b6abaf58756c093
+  - enabled: 1
+    path: Assets/Levels/Level_6.unity
+    guid: eccf4e67dcb7c8a449461454937df7b1
+  - enabled: 1
+    path: Assets/Levels/Level_7.unity
+    guid: b8c6a44dcc5698c4eafde6c23938bfcd
+  - enabled: 1
+    path: Assets/Levels/level_8.unity
+    guid: 1bfb4da0daf08824f82a04691f7177ed
+  - enabled: 1
+    path: Assets/Levels/Level_9.unity
+    guid: d35beb59e0ceb5b4ab72f5dda7e08080
+  - enabled: 1
+    path: Assets/Levels/Level_10.unity
+    guid: 2ff0c508baf18eb4181be5115d2d5dac
+  - enabled: 1
+    path: Assets/Levels/Level_11.unity
+    guid: ea7d6e5c6478384468d1aa4d17ac8bc9
+  - enabled: 1
+    path: Assets/Levels/Level_12.unity
+    guid: 6d260bab380be1b489c29f9cad119055
+  - enabled: 1
+    path: Assets/Levels/Level_13.unity
+    guid: 61d62fad38fce894a8882efa1e5323ae
+  - enabled: 1
+    path: Assets/Levels/Level_14.unity
+    guid: 13b5339c1c0474843828d9f2508214da
+  - enabled: 1
+    path: Assets/Levels/Level_15.unity
+    guid: 577914b86395d1240bc27c39e5ecec4a
+  - enabled: 1
+    path: Assets/Levels/Level_16.unity
+    guid: c3536c6ac1b445a42a3eae0226a0c078
+  - enabled: 1
+    path: Assets/Levels/level_17.unity
+    guid: 07b0cc425be10b9419771bd9a78be45a
+  - enabled: 1
+    path: Assets/Levels/Level_18.unity
+    guid: d2438f8bc2a05124e85a144bda3df13b
+  - enabled: 1
+    path: Assets/Levels/Level_19.unity
+    guid: 608e68394b1e03f43b2d230e15d48816
+  - enabled: 1
+    path: Assets/Levels/Level_20.unity
+    guid: ec4a201b80cd0f642ae18b4c18ba147d

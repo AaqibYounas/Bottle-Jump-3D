@@ -1,0 +1,4 @@
+Assets/CodeBase/Scene/MainMenu.unity
+Assets/Scenes/4-BottleFlip.unity
+Assets/Levels/Level_1.unity
+Assets/Prefabs/NPC/

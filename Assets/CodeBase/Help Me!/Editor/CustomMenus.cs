@@ -41,7 +41,7 @@ public class CustomMenus :MonoBehaviour{
 			bool value = EditorApplication.SaveCurrentSceneIfUserWantsTo();
 			if(value)
 			{
-				//EditorApplication.OpenScene(CustomMenus.plugin_Scene_Path);
+				EditorApplication.OpenScene(CustomMenus.Path1);
 			}
 			#endif
 		}
@@ -64,7 +64,7 @@ public class CustomMenus :MonoBehaviour{
 			bool value = EditorApplication.SaveCurrentSceneIfUserWantsTo();
 			if(value)
 			{
-				//EditorApplication.OpenScene(CustomMenus.gameplay_Scene_Path);
+				EditorApplication.OpenScene(CustomMenus.Path2);
 			}	
 			#endif
 		}
@@ -86,7 +86,7 @@ public class CustomMenus :MonoBehaviour{
 			bool value = EditorApplication.SaveCurrentSceneIfUserWantsTo();
 			if(value)
 			{
-				//EditorApplication.OpenScene(CustomMenus.menuScene_Scene_Path);
+				EditorApplication.OpenScene(CustomMenus.Path3);
 			}
 			#endif
 		}

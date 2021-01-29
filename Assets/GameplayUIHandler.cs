@@ -10,7 +10,6 @@ public class GameplayUIHandler : MonoBehaviour {
     public GameObject PausePanel;
     public GameObject GameOverPanel;
 
-    public string packageName;
     public AudioSource clickSound;
 
     public bool isBottleFlip = false;
@@ -167,10 +166,11 @@ public class GameplayUIHandler : MonoBehaviour {
 
     public void PlayClickSound()
     {
-        if (!clickSound.isPlaying)
-        {
-            clickSound.Play();
-        }
+        print("Sound");
+        //if (!clickSound.isPlaying)
+        //{
+        //    clickSound.Play();
+        //}
     }
 
     public void OnRateUs()

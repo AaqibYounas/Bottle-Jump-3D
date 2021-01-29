@@ -11,7 +11,7 @@
     public static bool isFistSpawn = true;
     public static bool isPlayingAnimtion = false;
     public static string gameMood = "";
-    public static int currentLevel = 0;
+    public static int currentLevel = 1;
     public static int numberOfLevels = 20;
     public static bool isLevelComplete = false;
 

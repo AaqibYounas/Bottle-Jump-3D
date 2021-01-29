@@ -13,7 +13,7 @@ public class HurdleSpawnerMine : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        hurdleCreation();
+        //hurdleCreation();
     }
 	
 

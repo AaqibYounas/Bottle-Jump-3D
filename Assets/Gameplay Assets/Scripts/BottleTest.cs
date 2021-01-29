@@ -135,7 +135,6 @@ public class BottleTest : MonoBehaviour
 
     void Update()
     {
-        print(canJump);
         if (jumpNo < 2)
         {
             if (Input.GetMouseButtonDown(0))
@@ -178,7 +177,6 @@ public class BottleTest : MonoBehaviour
                 //this.anim.enabled = true;
                 //this.anim.SetTrigger("FlipUp");
                 this.manager.CloseTutorial();
-                this.aud.PlayOneShot(this.aud.clip);
             }
         }
 
