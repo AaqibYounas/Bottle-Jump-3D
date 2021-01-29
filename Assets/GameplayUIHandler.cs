@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameplayUIHandler : MonoBehaviour {
 
+    public Image levelbar;
+    public GameObject start, end, bottle;
+    public Text levelIndicator1, levelIndicator2;
+    private float bottleDistance, totalDistance;
     public GameManager Manager;
     public GameObject PausePanel;
     public GameObject GameOverPanel;
@@ -26,13 +30,14 @@ public class GameplayUIHandler : MonoBehaviour {
         this.gameManager = GameManager.GetInstance();
         //this.TotalCoinsText.text = PrefsManager.GetTotalCoins().ToString();
         this.Manager = GameManager.GetInstance();
+        gameStarter();
 	}
-
+    
     public void StartGame()
     {
         this.MainMenu.SetActive(false);
         this.StartG();
-        //Invoke("StartG", 0.01f);
+        
     }
 
     void StartG()
@@ -41,15 +46,30 @@ public class GameplayUIHandler : MonoBehaviour {
         GameManager.CanSpawnHurdle = true;
         this.gameManager.PlayerController.enabled = true;
     }
+    public void levelBarUpdater()
+    {
+        bottleDistance = end.transform.position.z - bottle.transform.position.z;
+        float coveredDistance = totalDistance - bottleDistance;
+        levelbar.fillAmount = coveredDistance / totalDistance;
+        //print(coveredDistance);
+    }
+    private void gameStarter()
+    {
+        totalDistance = end.transform.position.z - start.transform.position.z;
+        levelIndicator1.text = variables.currentLevel.ToString();
+        levelIndicator2.text = (variables.currentLevel + 1).ToString();
+    }
 
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update () 
     {
         if (Input.GetKey(KeyCode.Escape))
         {
             this.HomeButton();
         }
 
+        levelBarUpdater();
         //if (Input.GetMouseButtonDown(0))
         //{
         //    this.StartGame();

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Target
+  - Environment
+  - SoundManager
+  - EnvironmentPositionCollider
+  - CoinCollector
+  - End
   layers:
   - Default
   - TransparentFX
