@@ -176,7 +176,7 @@ public class BottleTest : MonoBehaviour
                 //force = 40;
                 //this.anim.enabled = true;
                 //this.anim.SetTrigger("FlipUp");
-                this.manager.CloseTutorial();
+                //this.manager.CloseTutorial();
             }
         }
 

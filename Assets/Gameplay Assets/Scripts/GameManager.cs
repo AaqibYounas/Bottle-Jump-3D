@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour {
     {
         CanSpawnHurdle = false;
         PrefsManager.ResetCurrentStats();
-        this.Tutorial.SetActive(false);
+        //this.Tutorial.SetActive(false);
         this.Player = GameObject.FindGameObjectWithTag("Player");
         this.PlayerController = this.Player.GetComponent<BottleTest>();
         this.DumpScenePosition = this.Player.transform.position;
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour {
     {
         this.TotalDistance = this.controller.CoveredDistance;
       //  this.Distance.text = this.targetIndicator.Distance.ToString("###0.00")+"m";
-        this.CoveredDistance.text = ((int)this.TotalDistance).ToString() + "m";
+        //this.CoveredDistance.text = ((int)this.TotalDistance).ToString() + "m";
    //     this.FinalDistance.text = this.TotalDistance.ToString("###0.00") + "m";
     }
 
