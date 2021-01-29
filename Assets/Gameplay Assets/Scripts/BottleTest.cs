@@ -184,8 +184,8 @@ public class BottleTest : MonoBehaviour
 
     public void Test()
     {
-        if (this.PlatForm.GetComponent<HurdleSpawner>())
-            this.PlatForm.GetComponent<HurdleSpawner>().MakeITTrigger();
+        //if (this.PlatForm.GetComponent<HurdleSpawner>())
+        //    this.PlatForm.GetComponent<HurdleSpawner>().MakeITTrigger();
         CancelInvoke("Test");
     }
 

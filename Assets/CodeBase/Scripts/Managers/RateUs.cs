@@ -32,7 +32,7 @@ public class RateUs : MonoBehaviour
         print("yes");
         PlayerPrefs.SetInt(constants.rateusUsedPlayerPrefs, 1);
         Destroy(gameObject);
-        Application.LoadLevel(1);
+        Application.LoadLevel("Level_" + (variables.currentLevel));
         Application.OpenURL("market://details?id=" + Application.productName);
     }
 
@@ -44,7 +44,7 @@ public class RateUs : MonoBehaviour
         Destroy(gameObject);
 
 
-        Application.LoadLevel(1);
+        Application.LoadLevel("Level_" + (variables.currentLevel));
     }
 
 }

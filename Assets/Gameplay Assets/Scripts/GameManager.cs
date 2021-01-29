@@ -188,7 +188,8 @@ public class GameManager : MonoBehaviour {
         //    Social.ReportScore((int)(PlayerPrefs.GetInt("HighestDistance")), "Client ID here", (bool success) => {
         //    });
         //}
-        this.uiHandler.GameOverPanel.SetActive(true);
+        //this.uiHandler.GameOverPanel.SetActive(true);
+        Instantiate(Resources.Load(constants.LevelGameOver));
     }
 
     public void PauseGame()

@@ -19,19 +19,19 @@ public class GameOverLevel : MonoBehaviour
             i.DOFade(1, 1.5f);
         }
 
-        LevelText.text = "Level " + (variables.currentLevel+1).ToString() + " Failed";
+        LevelText.text = "Level " + (variables.currentLevel).ToString() + " Failed";
     }
 
     // Update is called once per frame
     public void MenuButtonPress(string ID)
     {
         //Advertisements.Instance.ShowInterstitial();
-        SoundManager.Instance.ButtonClickSound();
+        //SoundManager.Instance.ButtonClickSound();
         switch (ID)
         {
             case "Restart":
                 //GAManager.Instance.LogDesignEvent("GameOver:Start_Level "+variables.currentLevel);
-                SoundManager.Instance.VolumeUp();
+                //SoundManager.Instance.VolumeUp();
                 //Advertisements.Instance.ShowInterstitial();
 
                 Time.timeScale = 1;
@@ -52,12 +52,12 @@ public class GameOverLevel : MonoBehaviour
                     else
                     {
                         PlayerPrefs.SetInt(constants.rateusPlayerPrefs, ++N);
-                        Application.LoadLevel(1);
+                        Application.LoadLevel("Level_" + (variables.currentLevel));
                     }
                 }
                 else
                 {
-                    Application.LoadLevel(1);
+                    Application.LoadLevel("Level_" + (variables.currentLevel));
                 }
 
                 break;
@@ -65,8 +65,8 @@ public class GameOverLevel : MonoBehaviour
             case "Home":
                 //GAManager.Instance.LogDesignEvent("GameOver:Home");
                 //Advertisements.Instance.ShowInterstitial();
-                SoundManager.Instance.buttonClick();
-                SoundManager.Instance.VolumeUp();
+                //SoundManager.Instance.buttonClick();
+                //SoundManager.Instance.VolumeUp();
                 Time.timeScale = 1;
                 Application.LoadLevel(0);
                 break;
