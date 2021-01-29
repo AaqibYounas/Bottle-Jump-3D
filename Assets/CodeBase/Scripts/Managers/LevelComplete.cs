@@ -66,12 +66,12 @@ public class LevelComplete : MonoBehaviour
                     else
                     {
                         PlayerPrefs.SetInt(constants.rateusPlayerPrefs, ++N);
-                        Application.LoadLevel(1);
+                        Application.LoadLevel("Level_" + (variables.currentLevel));
                     }
                 }
                 else
                 {
-                    Application.LoadLevel(1);
+                    Application.LoadLevel("Level_" + (variables.currentLevel));
                 }
 
                 break;

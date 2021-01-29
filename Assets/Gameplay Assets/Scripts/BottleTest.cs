@@ -23,7 +23,7 @@ public class BottleTest : MonoBehaviour
     public float speed = 5.0f;
     private int jumpNo = 0;
     public float Yoffset = 2.0f;
-
+    public float rotationAngle;
     public bool Rotate;
 
     public GameManager manager;
@@ -132,9 +132,10 @@ public class BottleTest : MonoBehaviour
         this.CurrentPlatformName = "None";
         CancelInvoke("ResetName");
     }
-
+    float gravity = -25;
     void Update()
     {
+        angleChecker();
         if (jumpNo < 2)
         {
             if (Input.GetMouseButtonDown(0))
@@ -142,7 +143,7 @@ public class BottleTest : MonoBehaviour
                 //angleChecker();
                 //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 //this.transform.rotation = Quaternion.Euler(Vector3.zero);
-                Physics.gravity = new Vector3(0, -35f, 0);
+                Physics.gravity = new Vector3(0, gravity, 0);
 
                 Invoke("ResetName", 0.5f);
 
@@ -158,8 +159,8 @@ public class BottleTest : MonoBehaviour
 
         if (this.rb.velocity.y < 0 & this.RotateDown)
         {
-           Physics.gravity = new Vector3(0, -35f, 1);
-           this.anim.SetTrigger("FlipDown");
+           Physics.gravity = new Vector3(0, gravity, 1);
+           //this.anim.SetTrigger("FlipDown");
            this.RotateDown = false;
            Debug.Log("Is Not Missing");
            
@@ -174,7 +175,7 @@ public class BottleTest : MonoBehaviour
         //AddForce(force, this.desired);
         force = 0;
         this.RotateUp = true;
-        this.anim.SetTrigger("FlipUp");
+        //this.anim.SetTrigger("FlipUp");
     }
 
     void ResetRotate()
@@ -221,11 +222,11 @@ public class BottleTest : MonoBehaviour
 
         if (jumpNo <= 0)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            //transform.eulerAngles = new Vector3(0, 0, 0);
             print("1st");
-            this.anim.SetTrigger("FlipUp");
+            //this.anim.SetTrigger("FlipUp");
             this.rb.AddForce(200* bottleForce, ForceMode.Acceleration);
-            //this.rb.AddTorque(Vector3.right * 9999);
+            this.rb.AddTorque(Vector3.right * 99999);
             //ITweenMagic iTM = GetComponent<ITweenMagic>();
             //iTM.initialRotation = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
             //if(transform.rotation.x >= 0)
@@ -238,8 +239,8 @@ public class BottleTest : MonoBehaviour
         else
         {
             //transform.eulerAngles = new Vector3(0, 0, 0);
-            //this.rb.AddTorque(Vector3.right * 9999);
-            this.anim.SetTrigger("FlipUp");
+            this.rb.AddTorque(Vector3.right * 9999);
+            //this.anim.SetTrigger("FlipUp");
             this.rb.AddForce(200* bottleForce, ForceMode.Acceleration);
             print("2nd");
         }
@@ -438,10 +439,23 @@ public class BottleTest : MonoBehaviour
             z = angle.z - 360f;
         }
 
-        Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y)
-         + " , " + Mathf.Round(z));
+        //Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y)
+        // + " , " + Mathf.Round(z));
+
+        rotationAngle = Mathf.Round(x);
+        
+        if(rotationAngle <-1 && rotationAngle>=-15 && oneTime)
+        {
+            oneTime = false;
+            rb.Sleep();
+            rb.WakeUp();
+            Physics.gravity = new Vector3(0, gravity, 0);
+            //transform.eulerAngles = new Vector3(-5, 0, 0);
+
+            print("Stop");
+        }
     }
 
-
+    bool oneTime = true;
 
 }
