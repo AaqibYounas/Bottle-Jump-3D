@@ -390,7 +390,21 @@ public class BottleTest : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.name == "End")
+        {
+            StartCoroutine(levelComplete());
+        }
+    }
 
+
+   IEnumerator levelComplete()
+    {
+        GetComponent<BottleTest>().enabled = false;
+        yield return new WaitForSeconds(2);
+        Instantiate(Resources.Load(constants.levelcomplete));
+    }
 
     void Falsify()
     {

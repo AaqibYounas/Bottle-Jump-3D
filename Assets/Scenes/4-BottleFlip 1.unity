@@ -4080,6 +4080,16 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 238988170}
+    - target: {fileID: 65247959650942676, guid: 8cd04eb7f2ab27941af211240ba3fd48,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65272380210415964, guid: 8cd04eb7f2ab27941af211240ba3fd48,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cd04eb7f2ab27941af211240ba3fd48, type: 2}
   m_IsPrefabParent: 0
