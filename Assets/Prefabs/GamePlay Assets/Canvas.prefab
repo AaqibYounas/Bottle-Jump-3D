@@ -916,6 +916,7 @@ MonoBehaviour:
   bottle: {fileID: 0}
   levelIndicator1: {fileID: 114361397388260214}
   levelIndicator2: {fileID: 114055204937748804}
+  levelCompletionPercentatge: 0
   Manager: {fileID: 0}
   PausePanel: {fileID: 0}
   GameOverPanel: {fileID: 1101198071400974}

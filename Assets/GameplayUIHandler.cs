@@ -59,6 +59,9 @@ public class GameplayUIHandler : MonoBehaviour {
     private void gameStarter()
     {
         variables.isLevelComplete = false;
+        start = GameObject.Find("Start");
+        end = GameObject.Find("End");
+        bottle = GameObject.FindGameObjectWithTag("Player");
         start.transform.position = bottle.transform.position;
         totalDistance = end.transform.position.z - start.transform.position.z;
         print(totalDistance);
