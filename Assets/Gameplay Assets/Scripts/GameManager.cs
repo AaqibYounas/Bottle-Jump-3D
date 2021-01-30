@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour {
 
         if (PrefsManager.TimesPlayed() < 1)
         {
-            this.Tutorial.SetActive(true);
+            //this.Tutorial.SetActive(true);
             PrefsManager.IncreaseTimesPlayed();
         }
 
