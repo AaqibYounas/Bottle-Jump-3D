@@ -1183,6 +1183,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4972240494685504, guid: a75816bea16e21c43b8e979bdb74f0c8,
     type: 2}
   m_PrefabInternal: {fileID: 434429799}
+--- !u!1 &462963719 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1342805697880228, guid: 50cfa5c6e8354fa498e651b2b5663d9b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1184904098}
 --- !u!1 &583178345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,6 +2987,14 @@ Prefab:
         type: 2}
       propertyPath: bottle
       value: 
+      objectReference: {fileID: 462963719}
+    - target: {fileID: 1789170925350728, guid: dd26602a945e016488bdb42e4db38520, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403735431128686, guid: dd26602a945e016488bdb42e4db38520, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd26602a945e016488bdb42e4db38520, type: 2}

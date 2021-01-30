@@ -299,6 +299,15 @@ public class BottleTest : MonoBehaviour
 				col.gameObject.GetComponent<ObjectForce> ().forceTrigger ();
 			}
 
+			if (col.transform.parent.gameObject.GetComponent<ITweenMagic>()) 
+			{
+				col.transform.parent.gameObject.GetComponent<ITweenMagic>().enabled = true;
+			}
+			if (col.gameObject.GetComponent<ITweenMagic> ()) 
+			{
+				col.gameObject.GetComponent<ITweenMagic> ().enabled = true;
+			}
+
             jumpNo = 0;
             this.OnBasket = false;
             this.PlatForm = col.transform.root.gameObject;
@@ -456,7 +465,7 @@ public class BottleTest : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 //rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
-                print("Stop");
+
            
         }
     }
