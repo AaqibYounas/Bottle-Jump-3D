@@ -11,10 +11,11 @@ public class CameraScript : MonoBehaviour
 	void Start () 
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
-        //this.Distance = this.transform.position - Player.transform.position;
+        this.Distance = this.transform.position - Player.transform.position;
         cameraTransform = this.GetComponent<Transform>().position;
-        //this.transform.position = this.Distance + new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
-        cameraY = transform.position.y;
+        this.transform.position = this.Distance + new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        cameraY = transform.position.y-this.Distance.y;
+        
     }
 	
 	// Update is called once per frame

@@ -13,7 +13,9 @@ public class GameplayUIHandler : MonoBehaviour {
     private float bottleDistance, totalDistance;
     public GameManager Manager;
     public GameObject PausePanel;
-    public GameObject GameOverPanel;
+    public GameObject GameOverPanel; 
+    
+    
 
     public AudioSource clickSound;
 

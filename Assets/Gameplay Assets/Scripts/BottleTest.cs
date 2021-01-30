@@ -16,6 +16,7 @@ public enum GameplayMode
 public class BottleTest : MonoBehaviour
 {
     public BottleStates bottleState;
+
     [SerializeField]
     private GameObject Target;
     public Rigidbody rb;
@@ -177,6 +178,7 @@ public class BottleTest : MonoBehaviour
         {
             angleChecker();
         }
+        
 }
     void ApplyForce()
     {
@@ -196,6 +198,7 @@ public class BottleTest : MonoBehaviour
         //if (this.PlatForm.GetComponent<HurdleSpawner>())
         //    this.PlatForm.GetComponent<HurdleSpawner>().MakeITTrigger();
         CancelInvoke("Test");
+        
     }
 
     public void FlipUp()
@@ -225,7 +228,7 @@ public class BottleTest : MonoBehaviour
         canJump = true;
     }
 
-float bForce = 200;
+	public float bForce = 200;
     public void AddForce()
     {
 
@@ -286,14 +289,16 @@ float bForce = 200;
         else if (col.gameObject.tag.Equals("Target"))
         {
             Invoke("MoveEnvironment", 0.5f);
+			if (col.gameObject.GetComponent<ObjectForce>()) 
+			{
+				col.gameObject.GetComponent<ObjectForce> ().forceTrigger ();
+			}
 
             jumpNo = 0;
             this.OnBasket = false;
             this.PlatForm = col.transform.root.gameObject;
-            //this.PlatformOriginalScale = new Vector3(1, 1, 1);
 
             Invoke("InputOn", 0.4f);
-            //this.anim.SetTrigger("StopAnim");
 
         }
 
@@ -365,7 +370,7 @@ float bForce = 200;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.name == "End")
         {
