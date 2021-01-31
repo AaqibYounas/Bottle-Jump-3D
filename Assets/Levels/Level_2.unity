@@ -481,6 +481,87 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402797042}
   m_Mesh: {fileID: 4300000, guid: 73c957c8cb6cbd2488f670dd33314122, type: 3}
+--- !u!1 &449913279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 449913280}
+  - component: {fileID: 449913281}
+  m_Layer: 0
+  m_Name: chair Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449913280
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449913279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.134, z: 5.855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1138040074}
+  m_Father: {fileID: 1245545060}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449913281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449913279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00458f4e02fa47ee8aabc63811b9fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ITweenSpace: 0
+  EaseTypeMovement: 0
+  EaseTypeRotation: 0
+  EaseTypeScale: 0
+  timeMovement: 1
+  timeRotation: 1
+  timeScale: 1
+  delayMovement: 0
+  delayRotation: 0
+  delayScale: 0
+  LoopTypeMovement: 0
+  LoopTypeRotation: 0
+  LoopTypeScale: 0
+  Movement: 0
+  Rotation: 1
+  Scale: 0
+  ignoreTimeScale: 0
+  initialPosition3D: {x: 0, y: 0, z: 0}
+  targetPosition3D: {x: 0, y: 0, z: 0}
+  initialPosition2D: {x: 0, y: 0}
+  targetPosition2D: {x: 0, y: 0}
+  initialRotation: {x: 0, y: 8.745382e-10, z: -0.00000010930126}
+  targetRotation: {x: 342.7979, y: 9.1536695e-10, z: -0.00000010955802}
+  initialScale: {x: 0, y: 0, z: 0}
+  targetScale: {x: 0, y: 0, z: 0}
+  movementTweenCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  rotationTweenCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  scaleTweenCompleteEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &498969715
 Prefab:
   m_ObjectHideFlags: 0
@@ -593,7 +674,7 @@ Transform:
   m_LocalScale: {x: 0.00037999998, y: 0.34905, z: 18.964539}
   m_Children: []
   m_Father: {fileID: 1245545060}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &591830791
 MeshRenderer:
@@ -1210,13 +1291,13 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1138040073}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2.14, z: 6.28}
-  m_LocalScale: {x: 1.5033611, y: 1.6434418, z: 1.0000005}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.006000042, z: 0.42500067}
+  m_LocalScale: {x: 1.5033611, y: 1.6434418, z: 1}
   m_Children: []
-  m_Father: {fileID: 1245545060}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_Father: {fileID: 449913280}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1138040075
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1327,10 +1408,10 @@ Transform:
   - {fileID: 310064581}
   - {fileID: 1269942069}
   - {fileID: 402797043}
-  - {fileID: 1138040074}
   - {fileID: 1732029034}
   - {fileID: 1741028730}
   - {fileID: 591830790}
+  - {fileID: 449913280}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1673,11 +1754,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4119069271925140, guid: 8cd04eb7f2ab27941af211240ba3fd48, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.2
+      value: 7.86
       objectReference: {fileID: 0}
     - target: {fileID: 4119069271925140, guid: 8cd04eb7f2ab27941af211240ba3fd48, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.02
+      value: 4.49
       objectReference: {fileID: 0}
     - target: {fileID: 4119069271925140, guid: 8cd04eb7f2ab27941af211240ba3fd48, type: 2}
       propertyPath: m_LocalPosition.z
