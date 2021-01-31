@@ -593,7 +593,7 @@ Transform:
   m_LocalScale: {x: 0.00037999998, y: 0.34905, z: 18.964539}
   m_Children: []
   m_Father: {fileID: 1245545060}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &591830791
 MeshRenderer:
@@ -1328,9 +1328,9 @@ Transform:
   - {fileID: 1269942069}
   - {fileID: 402797043}
   - {fileID: 1995739697}
+  - {fileID: 591830790}
   - {fileID: 1732029034}
   - {fileID: 1741028730}
-  - {fileID: 591830790}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1677,7 +1677,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4119069271925140, guid: 8cd04eb7f2ab27941af211240ba3fd48, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.02
+      value: 4.71
       objectReference: {fileID: 0}
     - target: {fileID: 4119069271925140, guid: 8cd04eb7f2ab27941af211240ba3fd48, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2168,7 +2168,7 @@ MonoBehaviour:
   initialPosition2D: {x: 0, y: 0}
   targetPosition2D: {x: 0, y: 0}
   initialRotation: {x: -0, y: 0, z: 0}
-  targetRotation: {x: 333.49, y: 0, z: 0}
+  targetRotation: {x: -18, y: 0, z: 0}
   initialScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 0, y: 0, z: 0}
   movementTweenCompleteEvent:
