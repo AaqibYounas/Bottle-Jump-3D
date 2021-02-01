@@ -298,15 +298,15 @@ public class BottleTest : MonoBehaviour
 			{
 				col.gameObject.GetComponent<ObjectForce> ().forceTrigger ();
 			}
-
-			if (col.transform.parent.gameObject.GetComponent<ITweenMagic>()) 
-			{
-				col.transform.parent.gameObject.GetComponent<ITweenMagic>().enabled = true;
-			}
-			if (col.gameObject.GetComponent<ITweenMagic> ()) 
-			{
-				col.gameObject.GetComponent<ITweenMagic> ().enabled = true;
-			}
+            if(col.transform.parent)
+			    if (col.transform.parent.gameObject.GetComponent<ITweenMagic>()) 
+			    {
+				    col.transform.parent.gameObject.GetComponent<ITweenMagic>().enabled = true;
+			    }
+			    if (col.gameObject.GetComponent<ITweenMagic> ()) 
+			    {
+				    col.gameObject.GetComponent<ITweenMagic> ().enabled = true;
+			    }
 
             jumpNo = 0;
             this.OnBasket = false;
