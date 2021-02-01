@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+
+
+    public GameObject revivePoints;
     private static GameManager instance;
     private int count = 0;
     public Text text;
@@ -190,6 +193,17 @@ public class GameManager : MonoBehaviour {
         //}
         //this.uiHandler.GameOverPanel.SetActive(true);
         Instantiate(Resources.Load(constants.LevelGameOver));
+    }
+
+
+    public void revive()
+    {
+        BottleTest bottlePrefab = FindObjectOfType<BottleTest>();
+        Renderer rend = revivePoints.GetComponent<Renderer>();
+        Vector3 spwanPoint = rend.bounds.center + new Vector3( 0,rend.bounds.size.y/2+1,0);
+        bottlePrefab.enabled = true;
+        bottlePrefab.gameObject.transform.position = spwanPoint;
+        bottlePrefab.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     public void PauseGame()
