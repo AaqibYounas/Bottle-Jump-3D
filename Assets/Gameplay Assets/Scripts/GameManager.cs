@@ -192,7 +192,10 @@ public class GameManager : MonoBehaviour {
         //    });
         //}
         //this.uiHandler.GameOverPanel.SetActive(true);
-        Instantiate(Resources.Load(constants.LevelGameOver));
+
+        if (!FindObjectOfType<GameOverLevel>())
+            Instantiate(Resources.Load(constants.LevelGameOver));
+
     }
 
 

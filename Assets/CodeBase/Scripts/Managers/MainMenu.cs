@@ -24,7 +24,14 @@ public class MainMenu : MonoBehaviour
             case "Play":
                 //GAManager.Instance.LogDesignEvent("MainMenu:EndlessMood");
                 //variables.gameMood = constants.endless;
-                
+
+                int levelNumber = PlayerPrefs.GetInt(constants.levelCompletedPlayerPrefs);
+                if(levelNumber == 0)
+                {
+                    levelNumber = 1;
+                }
+                //variables.currentLevel = levelNumber;
+
                 Application.LoadLevel("Level_"+variables.currentLevel);
                 break;
 
