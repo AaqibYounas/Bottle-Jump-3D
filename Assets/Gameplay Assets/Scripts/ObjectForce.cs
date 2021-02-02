@@ -8,10 +8,20 @@ public class ObjectForce : MonoBehaviour {
 	public Vector3 forceAngle;
 	public float delayTime;
 	public Rigidbody[] objects;
-	// Use this for initialization
-	public void forceTrigger () 
+    public ITweenMagic[] IT;
+    // Use this for initialization
+
+    public void forceTrigger () 
 	{
-		StartCoroutine (applyForce());
+        if(IT.Length > 0)
+        {
+            foreach (ITweenMagic O in IT)
+            {
+                O.enabled = true;
+            }
+        }
+        else
+   		    StartCoroutine (applyForce());
 	}
 
 
@@ -23,5 +33,7 @@ public class ObjectForce : MonoBehaviour {
 			O.AddForce (force * forceAngle, ForceMode.Impulse);
 		}
 	}
+
+
 
 }

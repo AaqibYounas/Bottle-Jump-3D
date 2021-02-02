@@ -146,8 +146,6 @@ public class BottleTest : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-
-                ///// for removing skateboard form bottle parent 
                 if (transform.parent)
                     transform.parent = null;
 
@@ -316,13 +314,6 @@ public class BottleTest : MonoBehaviour
             {
                 print("board");
                 transform.parent = col.transform;
-            }
-            else if(col.transform.gameObject.name.Contains("ArcadeMachine"))
-            {
-                col.transform.GetChild(0).gameObject.SetActive(true);
-                print("ArcadeMachine");
-
-
             }
 
             jumpNo = 0;

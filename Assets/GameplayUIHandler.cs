@@ -38,16 +38,16 @@ public class GameplayUIHandler : MonoBehaviour {
     
     public void StartGame()
     {
-        this.MainMenu.SetActive(false);
+        //this.MainMenu.SetActive(false);
         this.StartG();
         
     }
 
     void StartG()
     {
-        this.GameplayUI.SetActive(true);
-        GameManager.CanSpawnHurdle = true;
-        this.gameManager.PlayerController.enabled = true;
+        //this.GameplayUI.SetActive(true);
+        //GameManager.CanSpawnHurdle = true;
+       // this.gameManager.PlayerController.enabled = true;
     }
     public void levelBarUpdater()
     {
