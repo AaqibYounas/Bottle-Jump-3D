@@ -146,6 +146,9 @@ public class BottleTest : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (transform.parent)
+                    transform.parent = null;
+
                 //angleChecker();
                 //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 //this.transform.rotation = Quaternion.Euler(Vector3.zero);
@@ -294,19 +297,24 @@ public class BottleTest : MonoBehaviour
         else if (col.gameObject.tag.Equals("Target"))
         {
             Invoke("MoveEnvironment", 0.5f);
-			if (col.gameObject.GetComponent<ObjectForce>()) 
-			{
-				col.gameObject.GetComponent<ObjectForce> ().forceTrigger ();
-			}
-            if(col.transform.parent)
-			    if (col.transform.parent.gameObject.GetComponent<ITweenMagic>()) 
-			    {
-				    col.transform.parent.gameObject.GetComponent<ITweenMagic>().enabled = true;
-			    }
-			    if (col.gameObject.GetComponent<ITweenMagic> ()) 
-			    {
-				    col.gameObject.GetComponent<ITweenMagic> ().enabled = true;
-			    }
+            if (col.gameObject.GetComponent<ObjectForce>())
+            {
+                col.gameObject.GetComponent<ObjectForce>().forceTrigger();
+            }
+            if (col.transform.parent)
+                if (col.transform.parent.gameObject.GetComponent<ITweenMagic>())
+                {
+                    col.transform.parent.gameObject.GetComponent<ITweenMagic>().enabled = true;
+                }
+            if (col.gameObject.GetComponent<ITweenMagic>())
+            {
+                col.gameObject.GetComponent<ITweenMagic>().enabled = true;
+            }
+            if (col.transform.gameObject.name.Contains("board"))
+            {
+                print("board");
+                transform.parent = col.transform;
+            }
 
             jumpNo = 0;
             this.OnBasket = false;
