@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
+
+
+
 public enum BottleStates
 {
     Alive,
@@ -75,9 +80,6 @@ public class BottleTest : MonoBehaviour
 
     public float RightOffset = 0.2f;
 
-
-    public bool inAir = false;
-
     void Awake()
     {
         canJump = true;
@@ -144,12 +146,23 @@ public class BottleTest : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+
+                ///// for removing skateboard form bottle parent 
+                if (transform.parent)
+                    transform.parent = null;
+
+                //angleChecker();
+                //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                //this.transform.rotation = Quaternion.Euler(Vector3.zero);
                 Physics.gravity = new Vector3(0, gravity, 0);
+
                 Invoke("ResetName", 0.5f);
-                inAir = true;
-                AddForce();
-                print("1st Jump");
-                Invoke("Test", 0.1f);  
+
+                    AddForce();
+                    print("1st Jump");
+                Invoke("Test", 0.1f);   ////////////////////////////////////////////////////////Test Line
+                //this.Particle.SetActive(false);
+                //this.RestoreScale();
                 Invoke("RD", 0.1f);
                 AllowInput = false;
             }
@@ -238,13 +251,14 @@ public class BottleTest : MonoBehaviour
         }
         else
         {
-            this.rb.AddTorque(Vector3.right * 9999999);
+            this.rb.AddTorque(Vector3.right * 99999);
             //this.anim.SetTrigger("FlipUp");
             print("2nd");
-            rotOne = 1;
+            
             if(this.rb.velocity.y < 0)
             {
                 this.rb.AddForce(bForce* bottleForce, ForceMode.Acceleration);
+
             }
             else
                this.rb.AddForce((bForce-50)* bottleForce, ForceMode.Acceleration);
@@ -284,12 +298,32 @@ public class BottleTest : MonoBehaviour
         }
         else if (col.gameObject.tag.Equals("Target"))
         {
-            inAir = false;
             Invoke("MoveEnvironment", 0.5f);
-			if (col.gameObject.GetComponent<ObjectForce>()) 
-			{
-				col.gameObject.GetComponent<ObjectForce> ().forceTrigger ();
-			}
+            if (col.gameObject.GetComponent<ObjectForce>())
+            {
+                col.gameObject.GetComponent<ObjectForce>().forceTrigger();
+            }
+            if (col.transform.parent)
+                if (col.transform.parent.gameObject.GetComponent<ITweenMagic>())
+                {
+                    col.transform.parent.gameObject.GetComponent<ITweenMagic>().enabled = true;
+                }
+            if (col.gameObject.GetComponent<ITweenMagic>())
+            {
+                col.gameObject.GetComponent<ITweenMagic>().enabled = true;
+            }
+            if (col.transform.gameObject.name.Contains("board"))
+            {
+                print("board");
+                transform.parent = col.transform;
+            }
+            else if(col.transform.gameObject.name.Contains("ArcadeMachine"))
+            {
+                col.transform.GetChild(0).gameObject.SetActive(true);
+                print("ArcadeMachine");
+
+
+            }
 
             jumpNo = 0;
             this.OnBasket = false;
@@ -381,8 +415,7 @@ public class BottleTest : MonoBehaviour
         variables.isLevelComplete = true;
         GetComponent<BottleTest>().enabled = false;
         yield return new WaitForSeconds(2);
-        if (!FindObjectOfType<LevelComplete>())
-            Instantiate(Resources.Load(constants.levelcomplete));
+        Instantiate(Resources.Load(constants.levelcomplete));
     }
 
     void Falsify()
@@ -443,16 +476,15 @@ public class BottleTest : MonoBehaviour
         rotationAngle = Mathf.Round(x);
                         print("Stop " + rotationAngle);
 
-        if (rotationAngle < 15 && rotationAngle >= -15 && inAir && rotOne == 0)
+        if(rotationAngle <15 && rotationAngle>=-15)
         {
-            Physics.gravity = new Vector3(0, gravity, 0);
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            //rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            print("Stop");
+                Physics.gravity = new Vector3(0, gravity, 0);
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                //rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+
+           
         }
-        else
-            rotOne = 0;
     }
 
 
