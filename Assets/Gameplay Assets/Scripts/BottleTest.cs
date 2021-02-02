@@ -146,6 +146,8 @@ public class BottleTest : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+
+                // for removing bottle parent from skateborad
                 if (transform.parent)
                     transform.parent = null;
 
@@ -315,7 +317,11 @@ public class BottleTest : MonoBehaviour
                 print("board");
                 transform.parent = col.transform;
             }
-
+            else if(col.transform.gameObject.name.Contains("ArcadeMachine"))
+            {
+                print("ArcadeMachine");
+                col.transform.GetChild(0).gameObject.SetActive(true);
+            }
             jumpNo = 0;
             this.OnBasket = false;
             this.PlatForm = col.transform.root.gameObject;
@@ -341,7 +347,14 @@ public class BottleTest : MonoBehaviour
         }
     }
 
-
+    void OnCollisionExit(Collision col)
+    {
+        if (col.transform.gameObject.name.Contains("ArcadeMachine"))
+        {
+            print("ArcadeMachine Exit");
+            col.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
 
     public void Restore()
     {
