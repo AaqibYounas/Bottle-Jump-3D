@@ -9,11 +9,8 @@ EditorBuildSettings:
     path: Assets/CodeBase/Scene/MainMenu.unity
     guid: 1aa00c9c357c7b942a93156894bb4a39
   - enabled: 1
-    path: Assets/Scenes/4-BottleFlip.unity
-    guid: d6edd0b607fad3a4d9d05c35605aed46
-  - enabled: 1
     path: Assets/Levels/Level_1.unity
-    guid: 7d690c85d15ff55429520ef1a0d8134a
+    guid: 9ae03e13acf56b846bca1b13a7e5a97f
   - enabled: 1
     path: Assets/Levels/Level_2.unity
     guid: 89fd867b5516d4a4ca65def03d7319bb
@@ -37,7 +34,7 @@ EditorBuildSettings:
     guid: 1bfb4da0daf08824f82a04691f7177ed
   - enabled: 1
     path: Assets/Levels/Level_9.unity
-    guid: d35beb59e0ceb5b4ab72f5dda7e08080
+    guid: 0cce3d316b2c6aa4ebc6fa6973c1a93a
   - enabled: 1
     path: Assets/Levels/Level_10.unity
     guid: 2ff0c508baf18eb4181be5115d2d5dac
@@ -60,10 +57,10 @@ EditorBuildSettings:
     path: Assets/Levels/Level_16.unity
     guid: c3536c6ac1b445a42a3eae0226a0c078
   - enabled: 1
-    path: Assets/Levels/level_17.unity
+    path: Assets/Levels/Level_18.unity
     guid: 07b0cc425be10b9419771bd9a78be45a
   - enabled: 1
-    path: Assets/Levels/Level_18.unity
+    path: Assets/Levels/Level_17.unity
     guid: d2438f8bc2a05124e85a144bda3df13b
   - enabled: 1
     path: Assets/Levels/Level_19.unity

@@ -410,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1421521313508142
 GameObject:
   m_ObjectHideFlags: 1
@@ -674,7 +674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1823547650735638
 GameObject:
   m_ObjectHideFlags: 1
@@ -916,6 +916,7 @@ MonoBehaviour:
   bottle: {fileID: 0}
   levelIndicator1: {fileID: 114361397388260214}
   levelIndicator2: {fileID: 114055204937748804}
+  percentatgeTmp: 0
   levelCompletionPercentatge: 0
   Manager: {fileID: 0}
   PausePanel: {fileID: 0}
@@ -1244,6 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6474e6463cd2242a3fd5f9d3c17518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Distance: {x: 0, y: 0, z: 0}
   Player: {fileID: 0}
   cameraTransform: {x: 0, y: 0, z: 0}
 --- !u!114 &114128456328523624

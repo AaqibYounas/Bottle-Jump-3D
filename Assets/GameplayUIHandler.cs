@@ -78,10 +78,6 @@ public class GameplayUIHandler : MonoBehaviour {
     // Update is called once per frame
     void Update () 
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            this.HomeButton();
-        }
 
         levelBarUpdater();
         //if (Input.GetMouseButtonDown(0))
@@ -100,10 +96,6 @@ public class GameplayUIHandler : MonoBehaviour {
         Application.OpenURL("https://www.facebook.com/hadid.ali");
     }
 
-    public void HomeButton()
-    {
-        SceneManager.LoadScene("1-MainMenu");
-    }
 
     public void RestartButtonLevel()
     {
@@ -136,15 +128,6 @@ public class GameplayUIHandler : MonoBehaviour {
             clickSound.Play();
         }
         SceneManager.LoadScene("5-DumpTheBall");
-    }
-
-    public void OnClickBack()
-    {
-        if (!clickSound.isPlaying)
-        {
-            clickSound.Play();
-        }
-        SceneManager.LoadScene("1-MainMenu");
     }
 
 

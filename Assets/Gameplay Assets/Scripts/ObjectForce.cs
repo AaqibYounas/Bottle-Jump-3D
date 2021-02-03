@@ -10,18 +10,23 @@ public class ObjectForce : MonoBehaviour {
 	public Rigidbody[] objects;
     public ITweenMagic[] IT;
     // Use this for initialization
-
+    public bool isPlayed = false;
     public void forceTrigger () 
 	{
-        if(IT.Length > 0)
+        if (!isPlayed)
         {
-            foreach (ITweenMagic O in IT)
+            if (IT.Length > 0)
             {
-                O.enabled = true;
+                foreach (ITweenMagic O in IT)
+                {
+                    O.enabled = true;
+                }
             }
+            else
+                StartCoroutine(applyForce());
+
+            isPlayed = true;
         }
-        else
-   		    StartCoroutine (applyForce());
 	}
 
 

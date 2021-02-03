@@ -56,10 +56,12 @@ public class GameManager : MonoBehaviour {
         PrefsManager.ResetGameplayCoins();
         PrefsManager.ResetCurrentGamePlayCoins();
         this.Counter = 0;
+        
     }
 
     void Awake()
     {
+
         CanSpawnHurdle = false;
         PrefsManager.ResetCurrentStats();
         //this.Tutorial.SetActive(false);

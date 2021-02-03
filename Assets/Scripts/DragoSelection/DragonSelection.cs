@@ -105,15 +105,6 @@ public class DragonSelection : MonoBehaviour {
         SceneManager.LoadScene("GamePlay");
     }
 
-    public void OnClickBack()
-    {
-        if (!clickSound.isPlaying)
-        {
-            clickSound.Play();
-        }
-        SceneManager.LoadScene("MainMenu");
-    }
-
     public void OnClickStore()
     {
         if (!clickSound.isPlaying)

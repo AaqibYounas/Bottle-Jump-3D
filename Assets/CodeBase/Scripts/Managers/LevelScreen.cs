@@ -77,7 +77,7 @@ public class LevelScreen : MonoBehaviour
     {
         print("Back");
         SoundManager.Instance.ButtonClickSound();
-        Advertisements.Instance.ShowInterstitial();
+        //Advertisements.Instance.ShowInterstitial();
         Destroy(this.gameObject);
     }
 

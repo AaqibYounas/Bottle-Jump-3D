@@ -37,7 +37,8 @@ GameObject:
   - component: {fileID: 4256483072813114}
   - component: {fileID: 33322013015118392}
   - component: {fileID: 23209553973878336}
-  - component: {fileID: 64726876932660530}
+  - component: {fileID: 65245459134679088}
+  - component: {fileID: 114344700511021158}
   m_Layer: 0
   m_Name: SI_Prop_ArcadeMachine_09
   m_TagString: Target
@@ -65,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919312884806966}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.22140881, y: -2.168566, z: 5.202606}
+  m_LocalPosition: {x: -0.22, y: -2.168566, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4120902676606418}
@@ -113,8 +114,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1919312884806966}
   m_Mesh: {fileID: 4300000, guid: 131177cc726bd054b97bff56cbf72df5, type: 3}
---- !u!64 &64726876932660530
-MeshCollider:
+--- !u!65 &65245459134679088
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -122,11 +123,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 131177cc726bd054b97bff56cbf72df5, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.2829555, y: 2.49, z: 1.6753668}
+  m_Center: {x: 0, y: 1.4014362, z: 0.4759881}
 --- !u!108 &108595871806655476
 Light:
   m_ObjectHideFlags: 1
@@ -163,3 +162,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114344700511021158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919312884806966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83673789a92d55469b6a13abee99c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 1
+  forceAngle: {x: 2, y: 2, z: 0}
+  delayTime: 0
+  objects:
+  - {fileID: 0}
+  IT: []
+  isPlayed: 0

@@ -79,6 +79,7 @@ public class BottleTest : MonoBehaviour
     public float HurdleSqueezeLimit = 0.4f;
 
     public float RightOffset = 0.2f;
+    public GameObject partyPoper;
 
     void Awake()
     {
@@ -144,29 +145,24 @@ public class BottleTest : MonoBehaviour
         //angleChecker();
         if (jumpNo < 2)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !variables.isLevelComplete)
             {
 
-                // for removing bottle parent from skateborad
-                if (transform.parent)
-                    transform.parent = null;
-
-                //angleChecker();
-                //this.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-                //this.transform.rotation = Quaternion.Euler(Vector3.zero);
                 Physics.gravity = new Vector3(0, gravity, 0);
 
                 Invoke("ResetName", 0.5f);
 
-                    AddForce();
-                    print("1st Jump");
-                Invoke("Test", 0.1f);   ////////////////////////////////////////////////////////Test Line
+                AddForce();
+                print("1st Jump");
+                //Invoke("Test", 0.1f);   ////////////////////////////////////////////////////////Test Line
                 //this.Particle.SetActive(false);
                 //this.RestoreScale();
-                Invoke("RD", 0.1f);
+                //Invoke("RD", 0.1f);
                 AllowInput = false;
             }
         }
+
+
 
         if (this.rb.velocity.y < 0 & this.RotateDown)
         {
@@ -226,8 +222,7 @@ public class BottleTest : MonoBehaviour
         this.ActiveBottle.transform.rotation = Quaternion.Slerp(this.ActiveBottle.transform.rotation, Quaternion.Euler(RotVal, 0, 0), this.RotationSpeed * Time.deltaTime);
     }
 
-    public float ExtraForce;
-
+    //public float ExtraForce;
 
     public Vector3 bottleForce;
     public bool canJump = true;
@@ -239,8 +234,10 @@ public class BottleTest : MonoBehaviour
     }
 
 	public float bForce = 200;
+    public bool tiltChecker = false;
     public void AddForce()
     {
+        oneTime = true;
 
         if (jumpNo <= 0)
         {
@@ -349,7 +346,12 @@ public class BottleTest : MonoBehaviour
 
     void OnCollisionExit(Collision col)
     {
-        if (col.transform.gameObject.name.Contains("ArcadeMachine"))
+        if (col.transform.gameObject.name.Contains("board"))
+        {
+            print("board");
+            transform.parent = null;
+        }
+        else if (col.transform.gameObject.name.Contains("ArcadeMachine"))
         {
             print("ArcadeMachine Exit");
             col.transform.GetChild(0).gameObject.SetActive(false);
@@ -380,7 +382,6 @@ public class BottleTest : MonoBehaviour
    public void GameOver()
     {
         this.manager.GameOver();
-     //   this.gameObject.SetActive(false);
         CancelInvoke("RegisterFlip");
         switch (this.mode)
         {
@@ -417,7 +418,9 @@ public class BottleTest : MonoBehaviour
    IEnumerator levelComplete()
     {
         variables.isLevelComplete = true;
-        GetComponent<BottleTest>().enabled = false;
+        //GetComponent<BottleTest>().enabled = false;
+        partyPoper.SetActive(true);
+        //partyPoper.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(2);
         Instantiate(Resources.Load(constants.levelcomplete));
     }
@@ -482,16 +485,76 @@ public class BottleTest : MonoBehaviour
 
         if(rotationAngle <15 && rotationAngle>=-15)
         {
+            if (oneTime)
+            {
                 Physics.gravity = new Vector3(0, gravity, 0);
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 //rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
+                oneTime = false;
+            }
+        }
+    }
+    public bool oneTime = true;
+    int rotOne = 0;
 
-           
+    void angleChecker_tiltedBottle()
+    {
+        Vector3 angle = transform.eulerAngles;
+        float x = angle.x;
+        float y = angle.y;
+        float z = angle.z;
+
+        if (Vector3.Dot(transform.up, Vector3.up) >= 0f)
+        {
+            if (angle.x >= 0f && angle.x <= 90f)
+            {
+                x = angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f)
+            {
+                x = angle.x - 360f;
+            }
+        }
+        if (Vector3.Dot(transform.up, Vector3.up) < 0f)
+        {
+            if (angle.x >= 0f && angle.x <= 90f)
+            {
+                x = 180 - angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f)
+            {
+                x = 180 - angle.x;
+            }
+        }
+
+        if (angle.y > 180)
+        {
+            y = angle.y - 360f;
+        }
+
+        if (angle.z > 180)
+        {
+            z = angle.z - 360f;
+        }
+
+        //Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y)
+        //+ " , " + Mathf.Round(z));
+
+        rotationAngle = Mathf.Round(x);
+        print("Stop " + rotationAngle);
+
+        if (rotationAngle < 15 && rotationAngle >= -15)
+        {
+            if (oneTime)
+            {
+                Physics.gravity = new Vector3(0, gravity, 0);
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                //rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                oneTime = false;
+            }
         }
     }
 
-
-    bool oneTime = true;
-    int rotOne = 0;
 }

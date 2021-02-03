@@ -61,12 +61,4 @@ public class States : MonoBehaviour
         SceneManager.LoadScene("5-DumpTheBall");
     }
 
-    public void OnClickBack()
-    {
-        if (!clickSound.isPlaying)
-        {
-            clickSound.Play();
-        }
-        SceneManager.LoadScene("1-MainMenu");
-    }
 }

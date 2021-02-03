@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4014278435930440}
   - component: {fileID: 33583722113677954}
   - component: {fileID: 23054373475703570}
-  - component: {fileID: 64456696394548780}
+  - component: {fileID: 65313085623215962}
   m_Layer: 0
   m_Name: SI_Prop_ArcadeMachine_14
   m_TagString: Target
@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1169589242792818}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.24, y: -2.25, z: -1.31}
+  m_LocalPosition: {x: -0.24, y: -2.168566, z: 1.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4590941148180424}
@@ -216,20 +216,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1864013722973118}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64456696394548780
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1169589242792818}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 68aaca60c51703941bfcdd8f1ce8a877, type: 3}
 --- !u!64 &64971721870508964
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -244,6 +230,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65313085623215962
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1169589242792818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2829555, y: 2.49, z: 1.6753668}
+  m_Center: {x: 0, y: 1.4014362, z: 0.4759881}
 --- !u!108 &108118072151280948
 Light:
   m_ObjectHideFlags: 1
