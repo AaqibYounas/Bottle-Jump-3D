@@ -350,6 +350,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
   m_IsPrefabParent: 0
@@ -453,6 +457,10 @@ Prefab:
       propertyPath: m_Name
       value: SI_Env_Floor_69 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
   m_IsPrefabParent: 0
@@ -526,6 +534,10 @@ Prefab:
     - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
       propertyPath: m_Name
       value: SI_Env_Floor_69 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
@@ -1684,7 +1696,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4331595913712862, guid: e812d5b54e8997b43a913b2f07d7e70e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -11.13
+      value: -10.93
       objectReference: {fileID: 0}
     - target: {fileID: 4331595913712862, guid: e812d5b54e8997b43a913b2f07d7e70e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1949,6 +1961,10 @@ Prefab:
     - target: {fileID: 4514636018934566, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
@@ -2384,6 +2400,10 @@ Prefab:
       propertyPath: m_Name
       value: SI_Env_Floor_69 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
   m_IsPrefabParent: 0
@@ -2503,6 +2523,10 @@ Prefab:
     - target: {fileID: 4514636018934566, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
       propertyPath: m_LocalScale.x
       value: 1.3691372
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
@@ -3307,6 +3331,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.99999994
       objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
   m_IsPrefabParent: 0
@@ -3522,6 +3550,10 @@ Prefab:
     - target: {fileID: 4514636018934566, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
