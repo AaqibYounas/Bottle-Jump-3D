@@ -322,6 +322,10 @@ Prefab:
       propertyPath: m_Name
       value: SI_Env_Floor_69 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
   m_IsPrefabParent: 0
@@ -395,6 +399,10 @@ Prefab:
     - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
       propertyPath: m_Name
       value: SI_Env_Floor_69 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
@@ -950,6 +958,10 @@ Prefab:
     - target: {fileID: 4514636018934566, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.0850261
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
@@ -1621,6 +1633,10 @@ Prefab:
       propertyPath: m_Name
       value: SI_Env_Floor_69 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
   m_IsPrefabParent: 0
@@ -2022,6 +2038,10 @@ Prefab:
       propertyPath: m_Name
       value: SI_Env_Floor_69 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
   m_IsPrefabParent: 0
@@ -2096,6 +2116,10 @@ Prefab:
       propertyPath: m_Name
       value: SI_Env_Floor_69 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
   m_IsPrefabParent: 0
@@ -2169,6 +2193,10 @@ Prefab:
     - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
       propertyPath: m_Name
       value: SI_Env_Floor_69 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
@@ -3105,6 +3133,10 @@ Prefab:
     - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
       propertyPath: m_Name
       value: SI_Env_Floor_69 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785004937128750, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e349bae072dc46a975e678bba5ff3, type: 2}
