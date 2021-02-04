@@ -31,10 +31,11 @@ public class SoundManager : SingeltonBase<SoundManager>
     public AudioClip swipeSound;
     public AudioClip partyPop;
     public AudioClip tapRoateSound;
+    public AudioClip flipSound;
+    public AudioClip fallSound;
 
 
 
-   
     /* Audio Source */
     public AudioSource gamePlayEffectsSource;
     public AudioSource BackgroundSoundSource;
@@ -60,6 +61,7 @@ public class SoundManager : SingeltonBase<SoundManager>
 
         //MusicONOFF(PlayerPrefs.GetString("music", "ON"));
         MusicONOFF(PlayerPrefs.GetInt("musicMute") == 0);
+
     }
 
     public void MusicONOFF(bool boo)
@@ -120,7 +122,7 @@ public class SoundManager : SingeltonBase<SoundManager>
     {
         this.GetComponent<AudioSource>().clip = menuBGSound;
         this.GetComponent<AudioSource>().Play();
-		this.GetComponent<AudioSource>().volume = 0.7f;
+		this.GetComponent<AudioSource>().volume = 0.307f;
        // CarEnvSound.Play();
     }
 
@@ -128,7 +130,7 @@ public class SoundManager : SingeltonBase<SoundManager>
     {
         this.GetComponent<AudioSource>().clip = gamePlayBGSound;
         this.GetComponent<AudioSource>().Play();
-		this.GetComponent<AudioSource>().volume = 0.4f;
+		this.GetComponent<AudioSource>().volume = 0.307f;
     }
 
 
@@ -160,15 +162,27 @@ public class SoundManager : SingeltonBase<SoundManager>
     {
 		gamePlayEffectsSource.GetComponent<AudioSource>().clip = levelCompleteSound;
         gamePlayEffectsSource.GetComponent<AudioSource>().Play();
-        CarEnvSound.GetComponent<AudioSource>().clip = partyPop;
-        if(variables.gameMood == constants.levelBased)
-            CarEnvSound.GetComponent<AudioSource>().Play();
     }
 
     public void comboEffect()
     {
         gamePlayEffectsSource.GetComponent<AudioSource>().clip = comboSound;
         gamePlayEffectsSource.GetComponent<AudioSource>().Play();
+    }
+    public void partyPoper()
+    {
+        CarEnvSound.GetComponent<AudioSource>().clip = partyPop;
+        CarEnvSound.GetComponent<AudioSource>().Play();
+    }
+    public void flip()
+    {
+        CarEnvSound.GetComponent<AudioSource>().clip = flipSound;
+        CarEnvSound.GetComponent<AudioSource>().Play();
+    }
+    public void fall()
+    {
+        CarEnvSound.GetComponent<AudioSource>().clip = fallSound;
+        CarEnvSound.GetComponent<AudioSource>().Play();
     }
     public void shapeMatch()
     {
@@ -204,7 +218,7 @@ public class SoundManager : SingeltonBase<SoundManager>
         iTween.ValueTo(gameObject, iTween.Hash(
             "from", exampleInt,
             "to", 0,
-            "time", 0.8f,
+            "time", 1.2f,
             "onupdatetarget", gameObject,
             "onupdate", "changeVolume",
             "easetype", iTween.EaseType.easeOutQuad
@@ -224,7 +238,7 @@ public class SoundManager : SingeltonBase<SoundManager>
     public void VolumeUp()
     {
         float startPoint = 0;
-        float endPoint = 0.332f;
+        float endPoint = 0.307f;
 
         iTween.ValueTo(gameObject, iTween.Hash(
             "from", startPoint,

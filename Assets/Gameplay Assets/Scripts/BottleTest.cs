@@ -238,7 +238,7 @@ public class BottleTest : MonoBehaviour
     public void AddForce()
     {
         oneTime = true;
-
+        SoundManager.Instance.flip();
         if (jumpNo <= 0)
         {
             print("1st");
@@ -280,6 +280,8 @@ public class BottleTest : MonoBehaviour
         if (col.gameObject.tag.Equals("Environment"))
         {
 
+
+
             if (variables.isLevelComplete)
                 return;
 
@@ -290,6 +292,7 @@ public class BottleTest : MonoBehaviour
                 return;
             }
             this.bottleState = BottleStates.Dead;
+            SoundManager.Instance.fall();
             this.GameOver();
             this.enabled = false;
         }
@@ -319,12 +322,20 @@ public class BottleTest : MonoBehaviour
                 print("ArcadeMachine");
                 col.transform.GetChild(0).gameObject.SetActive(true);
             }
+
+            FindObjectOfType<GameManager>().revivePoints = col.gameObject;
+
             jumpNo = 0;
             this.OnBasket = false;
             this.PlatForm = col.transform.root.gameObject;
 
             Invoke("InputOn", 0.4f);
 
+        }
+        else if(col.gameObject.tag.Equals("End"))
+        {
+                partyPoper.SetActive(true);
+            SoundManager.Instance.partyPoper();
         }
 
         else if (col.gameObject.tag.Equals("Basket"))
@@ -419,10 +430,11 @@ public class BottleTest : MonoBehaviour
     {
         variables.isLevelComplete = true;
         //GetComponent<BottleTest>().enabled = false;
-        partyPoper.SetActive(true);
+        //partyPoper.SetActive(true);
         //partyPoper.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(2);
-        Instantiate(Resources.Load(constants.levelcomplete));
+        if(!FindObjectOfType<LevelComplete>())
+            Instantiate(Resources.Load(constants.levelcomplete));
     }
 
     void Falsify()

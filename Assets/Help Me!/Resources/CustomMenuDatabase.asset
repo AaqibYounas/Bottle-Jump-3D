@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputValues:
     ScenePath1: Assets/CodeBase/Scene/MainMenu.unity
-    ScenePath2: Assets/Scenes/4-BottleFlip.unity
+    ScenePath2: Assets/Levels/Level_1.unity
     ScenePath3: Assets/Levels/Level_1.unity
     PrefabSavePath: Assets/Prefabs/NPC/

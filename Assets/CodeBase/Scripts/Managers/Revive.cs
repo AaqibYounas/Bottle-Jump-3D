@@ -10,14 +10,14 @@ public class Revive : MonoBehaviour
     [SerializeField] private Text levelPercentage;
 
     [SerializeField] private ITweenMagic tween;
-
+    public Text time;
 
     float timeLeft;
     // Start is called before the first frame update
     void Start()
     {
         timeLeft = totalTime;
-        levelPercentage.text = (FindObjectOfType<GameplayUIHandler>().levelCompletionPercentatge + "%").ToString();
+        levelPercentage.text = ( FindObjectOfType<GameplayUIHandler>().levelCompletionPercentatge + "% " + "Level Completed").ToString();
     }
 
     IEnumerator delayReviveSound()
@@ -34,6 +34,7 @@ public class Revive : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
             fillImage.fillAmount = timeLeft / totalTime;
+            time.text = ((timeLeft+1) .ToString())[0].ToString();
         }
        else
         {
@@ -56,7 +57,7 @@ public class Revive : MonoBehaviour
     {
         /// For testing purpose 
         /// 
-        //FindObjectOfType<GameManager>().Revive();
+        //FindObjectOfType<GameManager>().revive();
         //Destroy(gameObject);
 
 

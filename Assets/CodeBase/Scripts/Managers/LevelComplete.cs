@@ -30,6 +30,8 @@ public class LevelComplete : MonoBehaviour
             PlayerPrefs.SetInt(constants.isTutorialFirstTime, 1);
 
         levelText.text = "Level " + (variables.currentLevel).ToString() + " Complete";
+        SoundManager.Instance.levelComplete();
+        PlayerPrefs.SetInt(constants.levelCompletedPlayerPrefs, variables.currentLevel);
     }
 
     public void MenuButtonPress(string ID)
@@ -88,10 +90,11 @@ public class LevelComplete : MonoBehaviour
                 //GAManager.Instance.LogDesignEvent("LevelComplete:Next");
                 //Advertisements.Instance.ShowInterstitial();
                 variables.currentLevel++;
-                
-                //if (variables.currentLevel >= FindObjectOfType<LevelEditor>().levels.Count)
-                //    variables.currentLevel = 0;
-                //SoundManager.Instance.buttonClick();
+
+                if (variables.currentLevel >= 21)
+                    variables.currentLevel = 1;
+
+                SoundManager.Instance.buttonClick();
                 Application.LoadLevel("Level_" + (variables.currentLevel));
                 break;
 
