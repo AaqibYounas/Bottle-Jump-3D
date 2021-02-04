@@ -28,14 +28,19 @@ public class GameOverLevel : MonoBehaviour
     // Update is called once per frame
     public void MenuButtonPress(string ID)
     {
-        //Advertisements.Instance.ShowInterstitial();
         //SoundManager.Instance.ButtonClickSound();
+        if (variables.currentLevel % 2 == 0)
+        {
+            print("Ad");
+        }
+
+
         switch (ID)
         {
+
             case "Restart":
                 //GAManager.Instance.LogDesignEvent("GameOver:Start_Level "+variables.currentLevel);
                 SoundManager.Instance.VolumeUp();
-                //Advertisements.Instance.ShowInterstitial();
 
                 Time.timeScale = 1;
 
@@ -67,7 +72,6 @@ public class GameOverLevel : MonoBehaviour
 
             case "Home":
                 //GAManager.Instance.LogDesignEvent("GameOver:Home");
-                //Advertisements.Instance.ShowInterstitial();
                 SoundManager.Instance.buttonClick();
                 SoundManager.Instance.VolumeUp();
                 Time.timeScale = 1;
@@ -76,7 +80,6 @@ public class GameOverLevel : MonoBehaviour
 
             case "Share":
                 //GAManager.Instance.LogDesignEvent("GameOver:Share");
-                //Advertisements.Instance.ShowInterstitial();
 
                 StartCoroutine(TakeSSAndShare());
                 print("ShareNative");
