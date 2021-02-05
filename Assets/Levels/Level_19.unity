@@ -3347,8 +3347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83673789a92d55469b6a13abee99c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3
-  forceAngle: {x: 2, y: 0, z: 2}
+  force: 2
+  forceAngle: {x: 1, y: 1, z: 1}
   delayTime: 0
   objects:
   - {fileID: 1948400190}
