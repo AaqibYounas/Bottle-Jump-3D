@@ -47,7 +47,7 @@ public class MyAppStart : SingeltonBase<MyAppStart>
         //// IronSource.Agent.setUserId ("UserId");
 		
 		// Load Banner example
-		IronSource.Agent.loadBanner (IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
+		//IronSource.Agent.loadBanner (IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
 	}
 	
 	// Update is called once per frame

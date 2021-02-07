@@ -38,10 +38,10 @@ public class GameOverLevel : MonoBehaviour
 		print(AR.ToString());
         SoundManager.Instance.ButtonClickSound();
         
-		if (variables.currentLevel % 2 == 0)
-        {
+//		if (variables.currentLevel % 2 == 0)
+//        {
 			IronSource.Agent.showInterstitial ();
-        }
+//        }
 
 
         switch (ID)

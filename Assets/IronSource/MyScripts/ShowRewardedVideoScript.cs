@@ -19,7 +19,7 @@ public class ShowRewardedVideoScript : MonoBehaviour
 
 		ShowButton = GameObject.Find ("ShowRewardedVideo");
 		ShowText = GameObject.Find ("ShowRewardedVideoText"); 
-		//ShowText.GetComponent<UnityEngine.UI.Text> ().color = UnityEngine.Color.red;
+		ShowText.GetComponent<UnityEngine.UI.Text> ().color = UnityEngine.Color.red;
 
 		AmountText = GameObject.Find ("RVAmount");
 		

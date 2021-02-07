@@ -67,8 +67,7 @@ public class Revive : MonoBehaviour
         /// For testing purpose 
         /// 
         //FindObjectOfType<GameManager>().revive();
-        //Destroy(gameObject);
-
+        Destroy(gameObject);
 		FindObjectOfType<ShowRewardedVideoScript> ().ShowRewardedVideoButtonClicked ();
 
         ////print("Video");
