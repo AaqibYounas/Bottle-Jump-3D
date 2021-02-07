@@ -96,6 +96,12 @@ public class BottleTest : MonoBehaviour
         this.anim = this.ActiveBottle.GetComponent<Animator>();
         this.activeBottle = this.GetComponentInChildren<ActiveBottle>();
         //Invoke("AssignActiveBottle", 0.01f);
+
+		if (!IronSource.Agent.isInterstitialReady ())
+			IronSource.Agent.loadInterstitial ();
+
+
+		
     }
 
     public void EnableInput()
@@ -280,9 +286,7 @@ public class BottleTest : MonoBehaviour
         if (col.gameObject.tag.Equals("Environment"))
         {
 
-
-
-            if (variables.isLevelComplete)
+			if (variables.isLevelComplete && variables.isGameOver)
                 return;
 
             this.OnBasket = false;
@@ -291,8 +295,9 @@ public class BottleTest : MonoBehaviour
                 Invoke("Restore", this.RestoreWait);
                 return;
             }
-            this.bottleState = BottleStates.Dead;
+
             SoundManager.Instance.fall();
+
             this.GameOver();
             this.enabled = false;
         }
@@ -334,8 +339,11 @@ public class BottleTest : MonoBehaviour
         }
         else if(col.gameObject.tag.Equals("End"))
         {
-                partyPoper.SetActive(true);
-            SoundManager.Instance.partyPoper();
+			if (!partyPoper.activeSelf)
+			{
+				partyPoper.SetActive (true);
+				SoundManager.Instance.partyPoper ();
+			}
         }
 
         else if (col.gameObject.tag.Equals("Basket"))
@@ -419,7 +427,7 @@ public class BottleTest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "End")
+		if(other.gameObject.name == "End" && !variables.isLevelComplete)
         {
             StartCoroutine(levelComplete());
         }
@@ -493,7 +501,7 @@ public class BottleTest : MonoBehaviour
          //+ " , " + Mathf.Round(z));
 
         rotationAngle = Mathf.Round(x);
-                        print("Stop " + rotationAngle);
+//                        print("Stop " + rotationAngle);
 
         if(rotationAngle <15 && rotationAngle>=-15)
         {

@@ -182,21 +182,17 @@ public class GameManager : MonoBehaviour {
         }
 
         Debug.Log("Game Over");
-       // PrefsManager.AddToTotalCoins();
+
         int HD = PrefsManager.GetHighestDistance();
-        //if (this.TotalDistance > HD)
-        //{
-        //    PrefsManager.SetHighestDistance((int)this.TotalDistance);
-        //    ///Debug.Log("Highest Distance: " + PrefsManager.GetHighestDistance().ToString());
-        //    /// Put leaderboard client ID in place of CLIent ID here
 
-        //    Social.ReportScore((int)(PlayerPrefs.GetInt("HighestDistance")), "Client ID here", (bool success) => {
-        //    });
-        //}
-        //this.uiHandler.GameOverPanel.SetActive(true);
 
-        if (!FindObjectOfType<GameOverLevel>())
-            Instantiate(Resources.Load(constants.LevelGameOver));
+		if (IronSource.Agent.isRewardedVideoAvailable ()) 
+		{
+			Instantiate(Resources.Load(constants.revivePath));
+		}
+		else
+	        if (!FindObjectOfType<GameOverLevel>())
+	            Instantiate(Resources.Load(constants.LevelGameOver));
 
     }
 

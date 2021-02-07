@@ -18,7 +18,7 @@ public class Revive : MonoBehaviour
     void Start()
     {
         timeLeft = totalTime;
-        levelPercentage.text = ( FindObjectOfType<GameplayUIHandler>().levelCompletionPercentatge + "% " + "Level Completed").ToString();
+        levelPercentage.text = (FindObjectOfType<GameplayUIHandler>().levelCompletionPercentatge + "% " + "Level Completed").ToString();
 
 		AnalyticsResult AR = Analytics.CustomEvent("Revive : ");
 		print (AR.ToString ());
@@ -69,13 +69,8 @@ public class Revive : MonoBehaviour
         //FindObjectOfType<GameManager>().revive();
         //Destroy(gameObject);
 
+		FindObjectOfType<ShowRewardedVideoScript> ().ShowRewardedVideoButtonClicked ();
 
-
-        //if (Advertisements.Instance.IsRewardVideoAvailable())
-        //{
-        //    Destroy(gameObject);
-        //    Advertisements.Instance.ShowRewardedVideo(completedAd);
-        //}
         ////print("Video");
         ////FindObjectOfType<GameoverManager>().reviveDrop();
     }

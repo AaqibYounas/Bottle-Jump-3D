@@ -36,10 +36,11 @@ public class GameOverLevel : MonoBehaviour
 
 		AnalyticsResult AR = Analytics.CustomEvent("GameOver : " + ID);
 		print(AR.ToString());
-        //SoundManager.Instance.ButtonClickSound();
-        if (variables.currentLevel % 2 == 0)
+        SoundManager.Instance.ButtonClickSound();
+        
+		if (variables.currentLevel % 2 == 0)
         {
-            print("Ad");
+			IronSource.Agent.showInterstitial ();
         }
 
 

@@ -207,11 +207,6 @@ public class SoundManager : SingeltonBase<SoundManager>
     }
 
 
-
-
-
-
-
     public void levelFail()
     {
         float exampleInt = GetComponent<AudioSource>().volume;
