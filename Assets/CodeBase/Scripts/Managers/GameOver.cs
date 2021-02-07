@@ -43,6 +43,8 @@ public class GameOver : MonoBehaviour
             }
 
         }
+
+
     }
 
     // Update is called once per frame
@@ -122,7 +124,7 @@ public class GameOver : MonoBehaviour
         // To avoid memory leaks
         Destroy(ss);
 
-        new NativeShare().AddFile(filePath).SetSubject("Game").SetText("Can you beat My Score " + constants.gameLink ).Share();
+        //new NativeShare().AddFile(filePath).SetSubject("Game").SetText("Can you beat My Score " + constants.gameLink ).Share();
 
 
     }

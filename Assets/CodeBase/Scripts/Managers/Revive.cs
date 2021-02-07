@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class Revive : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class Revive : MonoBehaviour
     {
         timeLeft = totalTime;
         levelPercentage.text = ( FindObjectOfType<GameplayUIHandler>().levelCompletionPercentatge + "% " + "Level Completed").ToString();
+
+		AnalyticsResult AR = Analytics.CustomEvent("Revive : ");
+		print (AR.ToString ());
+
     }
 
     IEnumerator delayReviveSound()
@@ -55,6 +60,10 @@ public class Revive : MonoBehaviour
 
     public void rewardedVideoBTN()
     {
+
+		AnalyticsResult AR = Analytics.CustomEvent("Revive : Rewarded_Pressed");
+		print (AR.ToString ());
+
         /// For testing purpose 
         /// 
         //FindObjectOfType<GameManager>().revive();
@@ -73,8 +82,11 @@ public class Revive : MonoBehaviour
 
     public void completedAd(bool completed)
     {
+
         if (completed)
         {
+			AnalyticsResult AR = Analytics.CustomEvent("Revive : Rewarded_Received");
+			print (AR.ToString ());
             //FindObjectOfType<GameManager>().Revive();
         }
     }

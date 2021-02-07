@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
+
+
 public class SettingsPopUp : MonoBehaviour
 {
 
@@ -38,7 +41,10 @@ public class SettingsPopUp : MonoBehaviour
     public void SettingsButtonPress(string ID)
     {
         SoundManager.Instance.ButtonClickSound();
-   
+
+		AnalyticsResult AR = Analytics.CustomEvent("Settings : "+ ID);
+		print (AR.ToString ());
+
         switch (ID)
         {
             case "Music":

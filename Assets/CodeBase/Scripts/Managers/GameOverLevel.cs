@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Analytics;
 
 public class GameOverLevel : MonoBehaviour
 {
@@ -23,11 +24,18 @@ public class GameOverLevel : MonoBehaviour
 
 
         SoundManager.Instance.levelFail();
+
+		AnalyticsResult AR = Analytics.CustomEvent("GameOver : " + variables.currentLevel);
+		print(AR.ToString());
+
     }
 
     // Update is called once per frame
     public void MenuButtonPress(string ID)
     {
+
+		AnalyticsResult AR = Analytics.CustomEvent("GameOver : " + ID);
+		print(AR.ToString());
         //SoundManager.Instance.ButtonClickSound();
         if (variables.currentLevel % 2 == 0)
         {
@@ -105,7 +113,7 @@ public class GameOverLevel : MonoBehaviour
         // To avoid memory leaks
         Destroy(ss);
 
-        new NativeShare().AddFile(filePath).SetSubject("Game").SetText("Can you beat My Score " + constants.gameLink ).Share();
+        //new NativeShare().AddFile(filePath).SetSubject("Game").SetText("Can you beat My Score " + constants.gameLink ).Share();
 
 
     }

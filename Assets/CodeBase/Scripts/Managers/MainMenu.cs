@@ -13,10 +13,13 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         //GAManager.Instance.LogDesignEvent("MainMenu:Start");
+
     }
 
     public void MenuButtonPress(string ID)
     {
+		AnalyticsResult AR = Analytics.CustomEvent("MainMenu : " + ID);
+		print(AR.ToString());
 
         SoundManager.Instance.ButtonClickSound();
         switch (ID)
@@ -46,11 +49,7 @@ public class MainMenu : MonoBehaviour
 
             case "Settings":
                 Instantiate(Resources.Load(constants.settingPath));
-
-
-                AnalyticsResult AR = Analytics.CustomEvent("setting", new Vector3(1,1,1));
-                print(AR.ToString());
-
+		
                 break;
 
             case "RateUS":
@@ -112,7 +111,7 @@ public class MainMenu : MonoBehaviour
         // To avoid memory leaks
         Destroy(ss);
 
-        new NativeShare().AddFile(filePath).SetSubject("Find Game Here").SetText(constants.gameLink).Share();
+        //new NativeShare().AddFile(filePath).SetSubject("Find Game Here").SetText(constants.gameLink).Share();
 
         // Share on WhatsApp only, if installed (Android only)
         //if( NativeShare.TargetExists( "com.whatsapp" ) )

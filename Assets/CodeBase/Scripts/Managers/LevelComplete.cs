@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Analytics;
 
 public class LevelComplete : MonoBehaviour
 {
@@ -23,11 +24,10 @@ public class LevelComplete : MonoBehaviour
             i.DOFade(1, 1.5f);
         }
 
+		AnalyticsResult AR = Analytics.CustomEvent("LevelCompleted : " + variables.currentLevel );
+		print (AR.ToString ());
+		//GAManager.Instance.LogDesignEvent("LevelComplete:Start");
 
-        //GAManager.Instance.LogDesignEvent("LevelComplete:Start");
-
-        if (variables.currentLevel == 0)
-            PlayerPrefs.SetInt(constants.isTutorialFirstTime, 1);
 
         levelText.text = "Level " + (variables.currentLevel).ToString() + " Complete";
         SoundManager.Instance.levelComplete();
@@ -36,8 +36,10 @@ public class LevelComplete : MonoBehaviour
 
     public void MenuButtonPress(string ID)
     {
-        //SoundManager.Instance.ButtonClickSound();
-        if (variables.currentLevel % 2 == 0)
+		AnalyticsResult AR = Analytics.CustomEvent("LevelCompleted : " + ID );
+		print (AR.ToString ());
+        
+		if (variables.currentLevel % 2 == 0)
         {
             print("Show Ad");
             //Advertisements.Instance.ShowInterstitial();
@@ -124,7 +126,7 @@ public class LevelComplete : MonoBehaviour
         // To avoid memory leaks
         Destroy(ss);
 
-        new NativeShare().AddFile(filePath).SetSubject("Game").SetText("Can you beat My Level " + constants.gameLink ).Share();
+        //new NativeShare().AddFile(filePath).SetSubject("Game").SetText("Can you beat My Level " + constants.gameLink ).Share();
 
 
     }
